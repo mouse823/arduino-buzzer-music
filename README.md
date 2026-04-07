@@ -1,12 +1,34 @@
-# arduino buzzer music code
-這裡是我製作一些歌曲的蜂鳴器code
+# Arduino Buzzer Music Code
+
+這裡是我製作的一些蜂鳴器歌曲程式碼。
 
 使用此開源代碼改編[源碼在這](https://github.com/robsoncouto/arduino-songs)
 
+
+---
+
 ## 使用說明
-- 使用arduino mega2560板播放，(UNO的動態記憶體不足，歌曲太長會不能播)。
-- 使用無源蜂鳴器。
-- 接腳使用A4。
+- 使用 Arduino Mega 2560 板播放  
+  （Arduino Uno 的記憶體不足，較長的歌曲可能無法播放）
+- 使用無源蜂鳴器  
+- 接腳使用 A4  
 
+裡面的歌曲有經過改編，我已經盡力還原了。  
+創作不易，希望你會喜歡！
 
-裡面歌曲有經過改編，我已經盡力還原了，創作不易，希望喜歡。
+---
+
+## Description (English)
+
+This repository contains buzzer music code created by me.
+
+Some parts are adapted from the open-source project: [source](https://github.com/robsoncouto/arduino-songs)
+
+### Usage
+- Arduino Mega 2560 is recommended for playback  
+  (Arduino Uno may run out of memory for longer songs)
+- Use a passive buzzer  
+- Connect the buzzer to pin A4  
+
+Some songs have been modified and adapted. I have tried my best to recreate them as accurately as possible.  
+Creating these takes effort — hope you enjoy!
