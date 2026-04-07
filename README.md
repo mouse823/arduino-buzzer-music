@@ -1,4 +1,4 @@
-# arduino buzzer code
+# arduino buzzer music code
 這裡是我製作一些歌曲的蜂鳴器code
 
 使用此開源代碼改編[源碼在這](https://github.com/robsoncouto/arduino-songs)
