@@ -17,13 +17,14 @@
 創作不易，希望你會喜歡！
 
 SUMMER POCKETS音樂製作中!
+
 ---
 
 ## Description (English)
 
 This repository contains buzzer music code created by me.
 
-Some parts are adapted from the open-source project:[source](https://github.com/robsoncouto/arduino-songs)
+Some parts are adapted from the open-source project: [source](https://github.com/robsoncouto/arduino-songs)
 
 ### Usage
 - Arduino Mega 2560 is recommended for playback  
