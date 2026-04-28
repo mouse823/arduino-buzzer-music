@@ -1,5 +1,5 @@
 /*
-ジョジョの奇妙な冒険Parte5黄金の風
+ジョジョの奇妙な冒険Parte5黄金の風 Short Version
 */
 
 #define NOTE_B0  31
