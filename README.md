@@ -1,6 +1,6 @@
 # Arduino Buzzer Music Code
 
-這裡是我製作的一些蜂鳴器歌曲程式碼。
+此倉庫存放我製作的一些蜂鳴器歌曲程式碼，內容包含了動漫歌曲、遊戲歌曲、跟一些我不知道怎麼分類的歌曲^^。
 
 內容改編自開源專案：[源碼在這](https://github.com/robsoncouto/arduino-songs)
 
@@ -22,7 +22,7 @@ SUMMER POCKETS音樂製作中!
 
 ## Description (English)
 
-This repository contains buzzer music code created by me.
+This repository contains a collection of buzzer music code I created, including anime songs, game music, and some tracks that I’m not sure how to categorize ^^.
 
 Some parts are adapted from the open-source project: [source](https://github.com/robsoncouto/arduino-songs)
 
