@@ -103,7 +103,7 @@ Genshin Impact 暮景遐思
 #define NOTE_B8  7902
 #define REST 0
 
-int tempo = 110;
+int tempo = 121;
 int buzzer = A4;
 
 const int melody[] PROGMEM = {

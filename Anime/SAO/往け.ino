@@ -103,7 +103,7 @@
 #define NOTE_B8  7902
 #define REST 0
 
-int tempo = 92;
+int tempo = 100;
 int buzzer = A4;
 
 const int melody[] PROGMEM = {
