@@ -103,8 +103,8 @@ YOASOBI 怪物
 #define NOTE_B8  7902
 #define REST 0
 
-const int tempo = 85;
-const int buzzer = A4;
+int tempo = 85;
+int buzzer = A4;
 
 const int melody[] PROGMEM = {
  NOTE_CS4,6,NOTE_D4,16,NOTE_DS4,16,NOTE_D4,32,REST,32,NOTE_DS4,16,NOTE_D4,32,REST,32,NOTE_DS4,16,NOTE_D4,32,REST,32,NOTE_DS4,16,NOTE_D4,32,REST,32,NOTE_DS4,8,
