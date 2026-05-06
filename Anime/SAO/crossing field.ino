@@ -1,6 +1,8 @@
 /* 
-SAO主題曲 
+SAO op 「crossing field」
 */
+
+#include <avr/pgmspace.h>
 
 #define NOTE_B0  31
 #define NOTE_C1  33
@@ -101,15 +103,10 @@ SAO主題曲
 #define NOTE_B8  7902
 #define REST 0
 
-
 int tempo = 45;
-
-
 int buzzer = A4;
 
-
-int melody[] = {
-
+const int melody[] PROGMEM = {
   NOTE_F5,32,NOTE_G5,32,NOTE_A5,16,NOTE_C6,6,NOTE_F5,16,NOTE_E5,8,NOTE_D6,10,NOTE_C6,64,NOTE_D6,64,NOTE_C6,8,REST,16,NOTE_A5,32,NOTE_AS5,16,NOTE_A5,16,NOTE_G5,16,NOTE_A5,16,REST,32,
   NOTE_F4,64,NOTE_AS4,64,NOTE_D5,64,NOTE_F5,6,REST,64,NOTE_E5,8,NOTE_C5,8,NOTE_D5,5,REST,32,NOTE_D5,16,NOTE_D5,32,NOTE_D5,32,REST,6,
   NOTE_F4,32,NOTE_E4,16,NOTE_F4,16,NOTE_G4,16,NOTE_D4,8,REST,16,NOTE_C4,16,NOTE_E4,16,NOTE_F4,32,NOTE_E4,14,NOTE_F4,16,NOTE_G4,16,NOTE_D4,8,REST,32,
@@ -128,45 +125,37 @@ int melody[] = {
   REST,32,NOTE_D4,16,REST,32,NOTE_D4,16,REST,32,NOTE_D4,6,REST,6,REST,16,
   NOTE_G5,16,NOTE_F5,32,NOTE_C5,16,NOTE_G5,16,NOTE_F5,16,NOTE_C5,16,NOTE_E5,16,NOTE_F5,16,REST,32,NOTE_G5,16,NOTE_F5,32,NOTE_C5,16,NOTE_G5,16,NOTE_F5,16,NOTE_C5,16,NOTE_E5,16,NOTE_F5,2,
 
-
-  
 };
 
-
-
 int notes = sizeof(melody) / sizeof(melody[0]) / 2;
-
-
 int wholenote = (60000 * 4) / tempo;
 
-int divider = 0, noteDuration = 0;
+void playMelody(const int melody[], int notes, int wholenote) {
+  for (int thisNote = 0; thisNote < notes * 2; thisNote += 2) {
 
-void setup() {
+    int pitch = pgm_read_word(&melody[thisNote]);
+    int divider = pgm_read_word(&melody[thisNote + 1]);
 
-  for (int thisNote = 0; thisNote < notes * 2; thisNote = thisNote + 2) {
+    int noteDuration;
 
- 
-    divider = melody[thisNote + 1];
     if (divider > 0) {
-    
-      noteDuration = (wholenote) / divider;
-    } else if (divider < 0) {
-     
-      noteDuration = (wholenote) / abs(divider);
-      noteDuration *= 1.5; 
+      // 正常音符
+      noteDuration = wholenote / divider;
+    } else {
+      // 負音符（1.5倍）
+      noteDuration = wholenote / abs(divider);
+      noteDuration = noteDuration * 1.5;
     }
 
-    
-    tone(buzzer, melody[thisNote], noteDuration*0.9);
-
-    
+    tone(buzzer, pitch, noteDuration * 0.9);
     delay(noteDuration);
-    
-    
     noTone(buzzer);
   }
 }
 
+void setup() {
+  playMelody(melody, notes, wholenote);
+}
+
 void loop() {
- 
-}                         
+}

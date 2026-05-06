@@ -7,8 +7,7 @@
 ---
 
 ## 使用說明
-- 使用 Arduino Mega 2560 板播放  
-  （Arduino Uno 的記憶體不足，較長的歌曲可能無法播放）
+- 使用 Arduino Uno/Nano/Mega 板播放  
 - 使用無源蜂鳴器  
 - 將代碼複製到你的專案中  
 - 接腳使用 A4  
@@ -16,7 +15,7 @@
 裡面的歌曲有經過改編，我已經盡力還原了。  
 創作不易，希望你會喜歡！
 
-SUMMER POCKETS音樂製作中!
+Summer Pockets音樂製作中!
 
 ---
 
@@ -27,8 +26,7 @@ This repository contains a collection of buzzer music code I created, including 
 Some parts are adapted from the open-source project: [source](https://github.com/robsoncouto/arduino-songs)
 
 ### Usage
-- Arduino Mega 2560 is recommended for playback  
-  (Arduino Uno may run out of memory for longer songs)
+- Compatible with Arduino Uno, Nano, and Mega
 - Use a passive buzzer  
 - Copy the code into your project  
 - Connect the buzzer to pin A4  

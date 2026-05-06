@@ -2,6 +2,8 @@
 葬送のフリーレン OP 勇者
 */
 
+#include <avr/pgmspace.h>
+
 #define NOTE_B0  31
 #define NOTE_C1  33
 #define NOTE_CS1 35
@@ -101,15 +103,10 @@
 #define NOTE_B8  7902
 #define REST 0
 
-
 int tempo = 104;
-
-
 int buzzer = A4;
 
-
-int melody[] = {
-
+const int melody[] PROGMEM = {
   NOTE_G2,16,NOTE_D5,16,NOTE_D5,16,NOTE_D5,16,REST,16,NOTE_C5,16,NOTE_C5,16,NOTE_C5,16,REST,16,
   NOTE_G4,8,NOTE_AS4,8,NOTE_C5,8,NOTE_AS4,16,REST,16,NOTE_D5,16,NOTE_D5,16,NOTE_D5,16,REST,16,NOTE_C5,16,NOTE_C5,16,NOTE_C5,16,REST,16,
   NOTE_G4,8,NOTE_AS4,8,NOTE_F5,8,NOTE_D5,16,REST,16,NOTE_D5,16,NOTE_G5,16,NOTE_A5,16,NOTE_AS5,16,NOTE_A5,16,REST,16,NOTE_C5,16,NOTE_D5,16,NOTE_C5,8,NOTE_AS4,16,REST,16,
@@ -139,42 +136,37 @@ int melody[] = {
   NOTE_D5,8,NOTE_D5,16,NOTE_D5,16,NOTE_D6,16,NOTE_A5,16,REST,16,NOTE_A5,8,NOTE_G5,16,NOTE_G5,8,REST,16,NOTE_C5,16,NOTE_D5,16,NOTE_D5,16,NOTE_D5,8,NOTE_C5,8,
   NOTE_F5,8,NOTE_DS5,16,NOTE_D5,8,NOTE_C5,8,NOTE_D5,16,REST,16,NOTE_C5,16,NOTE_D5,16,NOTE_D5,16,NOTE_D5,8,NOTE_C5,8,NOTE_F5,16,NOTE_G5,16,REST,16,NOTE_D5,16,REST,16,NOTE_C5,8,NOTE_D5,16,REST,16,NOTE_C5,16,NOTE_D5,16,NOTE_D5,16,NOTE_D5,8,NOTE_C5,8,
   NOTE_F5,8,NOTE_DS5,16,NOTE_D5,8,NOTE_C5,8,NOTE_C5,16,NOTE_D5,16,NOTE_D5,16,REST,16,NOTE_D5,16,NOTE_D5,8,NOTE_D5,16,NOTE_D5,16,NOTE_D5,16,NOTE_D5,16,REST,16,NOTE_D5,16,NOTE_G5,16,NOTE_A5,16,NOTE_G5,8,NOTE_G4,4,
-  
-  
-  
 };
+
 int notes = sizeof(melody) / sizeof(melody[0]) / 2;
-
-
 int wholenote = (60000 * 4) / tempo;
 
-int divider = 0, noteDuration = 0;
+void playMelody(const int melody[], int notes, int wholenote) {
+  for (int thisNote = 0; thisNote < notes * 2; thisNote += 2) {
 
-void setup() {
+    int pitch = pgm_read_word(&melody[thisNote]);
+    int divider = pgm_read_word(&melody[thisNote + 1]);
 
-  for (int thisNote = 0; thisNote < notes * 2; thisNote = thisNote + 2) {
+    int noteDuration;
 
- 
-    divider = melody[thisNote + 1];
     if (divider > 0) {
-    
-      noteDuration = (wholenote) / divider;
-    } else if (divider < 0) {
-     
-      noteDuration = (wholenote) / abs(divider);
-      noteDuration *= 1.5; 
+      // 正常音符
+      noteDuration = wholenote / divider;
+    } else {
+      // 負音符（1.5倍）
+      noteDuration = wholenote / abs(divider);
+      noteDuration = noteDuration * 1.5;
     }
 
-    
-    tone(buzzer, melody[thisNote], noteDuration*0.9);
-
-    
+    tone(buzzer, pitch, noteDuration * 0.9);
     delay(noteDuration);
-    
-    
     noTone(buzzer);
   }
 }
-void loop()
-{
+
+void setup() {
+  playMelody(melody, notes, wholenote);
+}
+
+void loop() {
 }

@@ -2,114 +2,115 @@
 SUMMER POCKETS OP FULL "アルカテイル"
 */
 
- #define NOTE_B0  31
- #define NOTE_C1  33
- #define NOTE_CS1 35
- #define NOTE_D1  37
- #define NOTE_DS1 39
- #define NOTE_E1  41
- #define NOTE_F1  44
- #define NOTE_FS1 46
- #define NOTE_G1  49
- #define NOTE_GS1 52
- #define NOTE_A1  55
- #define NOTE_AS1 58
- #define NOTE_B1  62
- #define NOTE_C2  65
- #define NOTE_CS2 69
- #define NOTE_D2  73
- #define NOTE_DS2 78
- #define NOTE_E2  82
- #define NOTE_F2  87
- #define NOTE_FS2 93
- #define NOTE_G2  98
- #define NOTE_GS2 104
- #define NOTE_A2  110
- #define NOTE_AS2 117
- #define NOTE_B2  123
- #define NOTE_C3  131
- #define NOTE_CS3 139
- #define NOTE_D3  147
- #define NOTE_DS3 156
- #define NOTE_E3  165
- #define NOTE_F3  175
- #define NOTE_FS3 185
- #define NOTE_G3  196
- #define NOTE_GS3 208
- #define NOTE_A3  220
- #define NOTE_AS3 233
- #define NOTE_B3  247
- #define NOTE_C4  262
- #define NOTE_CS4 277
- #define NOTE_D4  294
- #define NOTE_DS4 311
- #define NOTE_E4  330
- #define NOTE_F4  349
- #define NOTE_FS4 370
- #define NOTE_G4  392
- #define NOTE_GS4 415
- #define NOTE_A4  440
- #define NOTE_AS4 466
- #define NOTE_B4  494
- #define NOTE_C5  523
- #define NOTE_CS5 554
- #define NOTE_D5  587
- #define NOTE_DS5 622
- #define NOTE_E5  659
- #define NOTE_F5  698
- #define NOTE_FS5 740
- #define NOTE_G5  784
- #define NOTE_GS5 831
- #define NOTE_A5  880
- #define NOTE_AS5 932
- #define NOTE_B5  988
- #define NOTE_C6  1047
- #define NOTE_CS6 1109
- #define NOTE_D6  1175
- #define NOTE_DS6 1245
- #define NOTE_E6  1319
- #define NOTE_F6  1397
- #define NOTE_FS6 1480
- #define NOTE_G6  1568
- #define NOTE_GS6 1661
- #define NOTE_A6  1760
- #define NOTE_AS6 1865
- #define NOTE_B6  1976
- #define NOTE_C7  2093
- #define NOTE_CS7 2217
- #define NOTE_D7  2349
- #define NOTE_DS7 2489
- #define NOTE_E7  2637
- #define NOTE_F7  2794
- #define NOTE_FS7 2960
- #define NOTE_G7  3136
- #define NOTE_GS7 3322
- #define NOTE_A7  3520
- #define NOTE_AS7 3729
- #define NOTE_B7  3951
- #define NOTE_C8  4186
- #define NOTE_CS8 4435
- #define NOTE_D8  4699
- #define NOTE_DS8 4978
- #define NOTE_E8  5274
- #define NOTE_F8  5588
- #define NOTE_FS8 5920
- #define NOTE_G8  6272
- #define NOTE_GS8 6645
- #define NOTE_A8  7074
- #define NOTE_AS8 7459
- #define NOTE_B8  7902
- #define REST 0
+#include <avr/pgmspace.h>
 
+#define NOTE_B0  31
+#define NOTE_C1  33
+#define NOTE_CS1 35
+#define NOTE_D1  37
+#define NOTE_DS1 39
+#define NOTE_E1  41
+#define NOTE_F1  44
+#define NOTE_FS1 46
+#define NOTE_G1  49
+#define NOTE_GS1 52
+#define NOTE_A1  55
+#define NOTE_AS1 58
+#define NOTE_B1  62
+#define NOTE_C2  65
+#define NOTE_CS2 69
+#define NOTE_D2  73
+#define NOTE_DS2 78
+#define NOTE_E2  82
+#define NOTE_F2  87
+#define NOTE_FS2 93
+#define NOTE_G2  98
+#define NOTE_GS2 104
+#define NOTE_A2  110
+#define NOTE_AS2 117
+#define NOTE_B2  123
+#define NOTE_C3  131
+#define NOTE_CS3 139
+#define NOTE_D3  147
+#define NOTE_DS3 156
+#define NOTE_E3  165
+#define NOTE_F3  175
+#define NOTE_FS3 185
+#define NOTE_G3  196
+#define NOTE_GS3 208
+#define NOTE_A3  220
+#define NOTE_AS3 233
+#define NOTE_B3  247
+#define NOTE_C4  262
+#define NOTE_CS4 277
+#define NOTE_D4  294
+#define NOTE_DS4 311
+#define NOTE_E4  330
+#define NOTE_F4  349
+#define NOTE_FS4 370
+#define NOTE_G4  392
+#define NOTE_GS4 415
+#define NOTE_A4  440
+#define NOTE_AS4 466
+#define NOTE_B4  494
+#define NOTE_C5  523
+#define NOTE_CS5 554
+#define NOTE_D5  587
+#define NOTE_DS5 622
+#define NOTE_E5  659
+#define NOTE_F5  698
+#define NOTE_FS5 740
+#define NOTE_G5  784
+#define NOTE_GS5 831
+#define NOTE_A5  880
+#define NOTE_AS5 932
+#define NOTE_B5  988
+#define NOTE_C6  1047
+#define NOTE_CS6 1109
+#define NOTE_D6  1175
+#define NOTE_DS6 1245
+#define NOTE_E6  1319
+#define NOTE_F6  1397
+#define NOTE_FS6 1480
+#define NOTE_G6  1568
+#define NOTE_GS6 1661
+#define NOTE_A6  1760
+#define NOTE_AS6 1865
+#define NOTE_B6  1976
+#define NOTE_C7  2093
+#define NOTE_CS7 2217
+#define NOTE_D7  2349
+#define NOTE_DS7 2489
+#define NOTE_E7  2637
+#define NOTE_F7  2794
+#define NOTE_FS7 2960
+#define NOTE_G7  3136
+#define NOTE_GS7 3322
+#define NOTE_A7  3520
+#define NOTE_AS7 3729
+#define NOTE_B7  3951
+#define NOTE_C8  4186
+#define NOTE_CS8 4435
+#define NOTE_D8  4699
+#define NOTE_DS8 4978
+#define NOTE_E8  5274
+#define NOTE_F8  5588
+#define NOTE_FS8 5920
+#define NOTE_G8  6272
+#define NOTE_GS8 6645
+#define NOTE_A8  7074
+#define NOTE_AS8 7459
+#define NOTE_B8  7902
+#define REST 0
 
- int tempo =117;  //??? 116
- int tempo1 =126; //??? 125
- int tempo2 =143;
- int tempo3 =138;
- int tempo4 =134;
- int buzzer = A4;
+int tempo =117;  //??? 116
+int tempo1 =126; //??? 125
+int tempo2 =143;
+int tempo3 =138;
+int tempo4 =134;
+int buzzer = A4;
 
- int melody[] = {
+const int melody[] PROGMEM = {
 //前奏
 NOTE_A5,32,NOTE_C6,12,NOTE_AS5,8,NOTE_D6,8,NOTE_DS6,4,NOTE_G5,3,NOTE_A5,32,NOTE_C6,12,NOTE_AS5,8,NOTE_D6,8,NOTE_DS6,4,NOTE_G5,4,
 NOTE_F5,8,NOTE_F6,8,NOTE_DS6,12,NOTE_AS5,32,NOTE_DS6,8,NOTE_D6,4,NOTE_AS5,4,NOTE_D5,8,NOTE_AS5,8,NOTE_GS5,12,NOTE_D5,32,NOTE_G5,4,NOTE_AS5,8,
@@ -118,8 +119,8 @@ NOTE_F5,14,NOTE_DS5,14,NOTE_D5,12,NOTE_DS5,12,NOTE_AS5,12,NOTE_D6,12,NOTE_DS6,8,
 NOTE_AS3,6,REST,16,NOTE_G5,2,REST,16,NOTE_DS5,8,NOTE_G5,8,NOTE_F5,3,REST,16,NOTE_DS5,3,REST,16,NOTE_AS5,2,REST,16,NOTE_F5,4,NOTE_DS6,7,NOTE_G5,7,NOTE_DS5,8,NOTE_D6,7,NOTE_AS5,7,NOTE_F5,8,NOTE_AS5,2,
 NOTE_GS5,16,NOTE_F5,16,NOTE_D5,6,NOTE_DS5,6,NOTE_F5,8,NOTE_F5,4,NOTE_G5,4,NOTE_AS5,-2,NOTE_D6,-2,REST,32,
 };
- 
-int melody1[] = {
+
+const int melody1[] PROGMEM = {
 //開始
 NOTE_C5,16,REST,16,NOTE_F5,6,NOTE_E5,6,NOTE_F5,4,REST,8,NOTE_F5,8,NOTE_E5,6,NOTE_F5,6,NOTE_C5,4,REST,8,NOTE_A4,16,NOTE_AS4,16,NOTE_C5,6,NOTE_G4,6,NOTE_A4,5,NOTE_A4,8,NOTE_F4,4,NOTE_G4,6,NOTE_C5,6,NOTE_A4,4,REST,7,
 NOTE_A4,8,NOTE_C5,6,NOTE_D5,6,NOTE_C5,5,NOTE_C5,8,NOTE_D5,8,NOTE_E5,8,NOTE_F5,6,NOTE_E5,6,NOTE_E5,5,NOTE_F5,8,NOTE_C5,8,REST,16,
@@ -130,7 +131,7 @@ NOTE_D5,16,NOTE_C5,16,NOTE_D5,6,NOTE_F4,6,NOTE_D4,8,NOTE_D5,9,NOTE_AS4,9,NOTE_D5
 NOTE_F5,16,NOTE_G5,6,NOTE_G5,6,NOTE_F5,-2,REST,16,REST,8,
 };
 
-int melody2[] = {
+const int melody2[] PROGMEM = {
 NOTE_E5,8,NOTE_F5,4,NOTE_G5,8,NOTE_A5,4,NOTE_AS5,8,NOTE_A5,8,NOTE_A5,8,
 NOTE_F5,4,NOTE_F5,8,NOTE_G5,8,NOTE_F5,8,NOTE_E5,8,NOTE_C5,8,NOTE_E5,4,NOTE_F5,8,NOTE_G5,8,NOTE_A5,4,NOTE_AS5,8,NOTE_A5,4,
 NOTE_F5,3,NOTE_E5,4,NOTE_F5,8,NOTE_C5,8,REST,8,NOTE_A4,8,NOTE_AS4,8,NOTE_C5,8,NOTE_C5,8,NOTE_AS4,4,NOTE_F5,4,NOTE_F5,8,NOTE_E5,8,NOTE_F5,4,NOTE_G5,4,NOTE_C5,8,REST,8,
@@ -148,20 +149,20 @@ NOTE_G5,3,NOTE_AS4,16,NOTE_AS4,16,NOTE_AS4,4,NOTE_DS5,8,NOTE_G5,12,NOTE_AS4,32,N
 NOTE_DS6,5,NOTE_G5,6,NOTE_DS5,8,NOTE_D6,5,NOTE_AS5,6,NOTE_F5,8,NOTE_AS5,-2,NOTE_AS5,16,NOTE_GS5,16,NOTE_G5,16,NOTE_F5,16,NOTE_D5,6,NOTE_DS5,6,NOTE_F5,8,NOTE_F5,4,NOTE_G5,4,NOTE_AS5,-2,REST,16,NOTE_D6,1,
 };
 
-int melody3[] = {
+const int melody3[] PROGMEM = {
 NOTE_C5,8,NOTE_F5,6,NOTE_E5,6,NOTE_F5,4,NOTE_E4,8,NOTE_F4,8,NOTE_F5,8,NOTE_E5,6,NOTE_F5,6,NOTE_C5,4,NOTE_E4,8,NOTE_C4,8,
 NOTE_A4,16,NOTE_AS4,16,NOTE_C5,6,NOTE_G4,6,NOTE_A4,4,NOTE_A4,8,NOTE_F4,4,NOTE_G4,6,NOTE_C5,6,NOTE_A4,4,REST,4,
 NOTE_A4,8,NOTE_C5,6,NOTE_D5,6,NOTE_C5,4,NOTE_C5,8,NOTE_D5,8,NOTE_E5,8,NOTE_F5,6,NOTE_E5,6,NOTE_E5,4,NOTE_F5,8,NOTE_C5,8,REST,8,
 NOTE_G5,6,NOTE_F5,6,NOTE_F5,4,NOTE_E5,8,NOTE_E5,8,NOTE_F5,8,NOTE_C5,2,REST,4,
 };
 
-int melody4[] = {
+const int melody4[] PROGMEM = {
 NOTE_C5,8,NOTE_C5,8,NOTE_F5,6,NOTE_E5,6,NOTE_F5,3,NOTE_A4,8,NOTE_F5,8,NOTE_E5,6,NOTE_F5,6,NOTE_C5,3,NOTE_C5,8,NOTE_C5,8,NOTE_G5,6,NOTE_F5,6,NOTE_F5,3,
 NOTE_E5,8,NOTE_F5,8,NOTE_G5,6,NOTE_A5,6,NOTE_D5,-4,REST,12,NOTE_D5,16,NOTE_C5,16,NOTE_D5,-4,REST,12,NOTE_D5,8,NOTE_AS4,8,NOTE_D5,8,NOTE_F5,8,NOTE_E5,6,NOTE_F5,6,NOTE_E5,3,REST,8,
 NOTE_E5,16,NOTE_F5,16,NOTE_G5,6,NOTE_G5,6,NOTE_F5,-2,REST,16,
 };
 
-int melody5[] = {
+const int melody5[] PROGMEM = {
 NOTE_E5,4,NOTE_F5,4,NOTE_F5,8,NOTE_G5,8,NOTE_A5,4,NOTE_AS5,8,NOTE_A5,8,REST,8,NOTE_F5,4,NOTE_F5,8,NOTE_G5,8,NOTE_F5,8,NOTE_E5,8,NOTE_C5,8,REST,8,
 NOTE_E5,8,NOTE_F5,8,NOTE_G5,8,NOTE_A5,4,NOTE_AS5,8,NOTE_A5,8,REST,8,NOTE_F5,4,NOTE_F5,8,NOTE_E5,4,NOTE_F5,8,NOTE_C5,8,REST,8,
 NOTE_A4,8,NOTE_AS4,8,NOTE_C5,8,NOTE_C5,8,NOTE_AS4,4,NOTE_F5,3,NOTE_E5,8,NOTE_F5,8,REST,8,NOTE_G5,4,NOTE_C5,8,REST,8,NOTE_F5,8,NOTE_C6,8,NOTE_AS5,8,NOTE_A5,8,NOTE_G5,8,NOTE_G5,8,NOTE_A5,4,NOTE_AS5,8,NOTE_A5,8,NOTE_F5,2,
@@ -176,7 +177,7 @@ NOTE_D5,8,NOTE_DS5,8,NOTE_F5,16,REST,16,NOTE_AS5,6,NOTE_GS5,6,NOTE_G5,4,NOTE_F5,
 NOTE_D5,8,NOTE_DS5,8,NOTE_F5,8,NOTE_F5,6,NOTE_F5,6,NOTE_G5,-1,REST,8,
 };
 
-int melody6[] = {
+const int melody6[] PROGMEM = {
 NOTE_F5,3,NOTE_DS5,3,NOTE_AS5,8,NOTE_F5,-3,REST,8,
 NOTE_D5,32,REST,32,NOTE_DS5,32,REST,32,NOTE_F5,32,REST,32,NOTE_G5,32,REST,32,NOTE_GS5,32,REST,32,NOTE_A5,32,REST,32,NOTE_AS5,3,NOTE_GS5,4,NOTE_G5,4,NOTE_F5,-3,NOTE_D5,8,NOTE_F5,6,
 NOTE_GS5,32,NOTE_A5,32,NOTE_AS5,6,NOTE_D6,3,NOTE_AS5,3,NOTE_F5,16,REST,16,
@@ -186,7 +187,7 @@ NOTE_AS5,16,NOTE_AS5,16,NOTE_AS5,6,NOTE_AS5,6,NOTE_AS5,8,NOTE_AS5,6,NOTE_GS5,6,N
 NOTE_AS4,16,NOTE_D5,16,NOTE_F5,8,NOTE_AS5,8,NOTE_C6,8,NOTE_AS5,4,REST,16,NOTE_C6,8,NOTE_D6,-3,REST,8,
 };
 
-int melody7[] = {
+const int melody7[] PROGMEM = {
 NOTE_AS4,16,NOTE_GS5,3,NOTE_DS5,8,NOTE_DS5,8,NOTE_F5,8,NOTE_F5,8,NOTE_FS5,8,NOTE_GS5,8,NOTE_FS5,4,NOTE_F5,8,REST,8,NOTE_F5,8,NOTE_FS5,8,NOTE_GS5,8,NOTE_AS5,8,NOTE_GS5,4,NOTE_AS5,4,NOTE_FS5,4,NOTE_F5,4,NOTE_FS5,8,NOTE_CS5,2,REST,6,REST,32,
 NOTE_DS5,4,NOTE_DS5,4,REST,12,NOTE_F5,8,NOTE_F5,8,NOTE_FS5,8,NOTE_GS5,4,NOTE_FS5,8,NOTE_F5,8,REST,8,NOTE_F5,8,NOTE_FS5,8,NOTE_GS5,8,NOTE_FS5,8,NOTE_F5,4,NOTE_FS5,4,NOTE_GS5,8,NOTE_AS5,16,REST,16,NOTE_DS5,4,REST,4,
 NOTE_DS5,8,NOTE_CS6,8,NOTE_B5,4,NOTE_B5,8,NOTE_DS6,4,REST,8,NOTE_DS6,4,NOTE_D6,8,NOTE_C6,8,NOTE_D6,-2,REST,6,
@@ -197,15 +198,13 @@ NOTE_G5,16,NOTE_G5,16,NOTE_G5,8,NOTE_F5,8,NOTE_C6,16,REST,16,NOTE_C6,4,NOTE_D6,8
 NOTE_G5,16,NOTE_GS5,16,NOTE_AS5,8,NOTE_AS5,8,NOTE_AS5,8,NOTE_AS5,8,NOTE_AS5,8,NOTE_C6,16,REST,16,NOTE_DS5,8,NOTE_D5,8,REST,8,NOTE_D5,8,NOTE_DS5,8,NOTE_F5,4,NOTE_G5,8,NOTE_DS6,8,NOTE_D6,4,NOTE_D6,8,NOTE_DS6,16,REST,16,
 NOTE_D6,4,NOTE_C6,4,NOTE_G5,3,NOTE_GS5,8,NOTE_G5,4,REST,4,NOTE_F4,16,NOTE_G4,16,NOTE_DS4,8,REST,4,
 NOTE_DS4,4,NOTE_C4,8,NOTE_D4,8,NOTE_DS4,8,NOTE_F4,6,NOTE_G4,6,NOTE_D4,8,REST,3,
-NOTE_DS5,16,NOTE_F5,16,NOTE_G5,8,NOTE_G4,16,NOTE_C5,16,NOTE_DS5,8,NOTE_F5,8,NOTE_G5,6,NOTE_GS5,6,NOTE_AS5,8,NOTE_F5,2,REST,8,NOTE_D5,8,NOTE_F5,8,NOTE_AS5,16,REST,16,NOTE_D6,6,NOTE_D6,6,NOTE_C6,-1,REST,4,
+NOTE_DS5,16,NOTE_F5,16,NOTE_G5,8,NOTE_G4,16,NOTE_C5,16,NOTE_DS5,8,NOTE_F5,8,NOTE_G5,6,NOTE_GS5,6,NOTE_AS5,8,NOTE_F5,2,REST,8,NOTE_D5,8,NOTE_F5,8,NOTE_AS5,16,REST,16,NOTE_D6,6,NOTE_D6,6,NOTE_C6,-1,REST,4, 
 };
 
-int melody8[] = {
+const int melody8[] PROGMEM = {
 NOTE_G5,3,NOTE_AS5,16,NOTE_AS5,16,NOTE_AS5,4,NOTE_DS5,8,NOTE_G5,8,NOTE_F5,6,NOTE_DS4,6,NOTE_D5,8,NOTE_DS5,-3,NOTE_AS5,2,REST,6,NOTE_F5,4,NOTE_DS6,6,NOTE_G5,6,NOTE_DS5,8,NOTE_D6,6,NOTE_AS5,6,NOTE_F5,8,NOTE_AS5,3,NOTE_F5,16,NOTE_F5,16,NOTE_F5,4,
 NOTE_AS5,16,NOTE_GS5,16,NOTE_G5,16,NOTE_F5,16,NOTE_D5,6,NOTE_DS5,6,NOTE_F5,8,NOTE_F5,4,NOTE_G5,4,NOTE_AS5,1,NOTE_DS6,6,NOTE_D6,6,NOTE_AS5,16,REST,16,NOTE_G5,6,NOTE_GS5,6,NOTE_AS5,-1,
 };
-
-
 
  int notes = sizeof(melody) / sizeof(melody[0]) / 2;
  int notes1 = sizeof(melody1) / sizeof(melody1[0]) / 2;
@@ -221,211 +220,42 @@ NOTE_AS5,16,NOTE_GS5,16,NOTE_G5,16,NOTE_F5,16,NOTE_D5,6,NOTE_DS5,6,NOTE_F5,8,NOT
  int wholenote2 = (60000 * 4) / tempo2;
  int wholenote3 = (60000 * 4) / tempo3;
  int wholenote4 = (60000 * 4) / tempo4;
- int divider = 0, noteDuration = 0;
 
- void setup() {
+void playMelody(const int melody[], int notes, int wholenote) {
+  for (int thisNote = 0; thisNote < notes * 2; thisNote += 2) {
 
-  for (int thisNote = 0; thisNote < notes * 2; thisNote = thisNote + 2) {
+    int pitch = pgm_read_word(&melody[thisNote]);
+    int divider = pgm_read_word(&melody[thisNote + 1]);
 
- 
-    divider = melody[thisNote + 1];
+    int noteDuration;
+
     if (divider > 0) {
-    
-      noteDuration = (wholenote) / divider;
-    } else if (divider < 0) {
-     
-      noteDuration = (wholenote) / abs(divider);
-      noteDuration *= 1.5; 
+      // 正常音符
+      noteDuration = wholenote / divider;
+    } else {
+      // 負音符（1.5倍）
+      noteDuration = wholenote / abs(divider);
+      noteDuration = noteDuration * 1.5;
     }
 
-    
-    tone(buzzer, melody[thisNote], noteDuration*0.9);
- 
-    
+    tone(buzzer, pitch, noteDuration * 0.9);
     delay(noteDuration);
-    
-    
     noTone(buzzer);
   }
+}
 
-  for (int thisNote = 0; thisNote < notes1 * 2; thisNote = thisNote + 2) {
+void setup() {
+  playMelody(melody, notes, wholenote);
+  playMelody(melody1, notes1, wholenote1);
+  playMelody(melody2, notes2, wholenote2);
+  playMelody(melody3, notes3, wholenote3);
+  playMelody(melody4, notes4, wholenote4);
+  playMelody(melody5, notes5, wholenote2);
+  playMelody(melody6, notes6, wholenote4);
+  playMelody(melody7, notes7, wholenote2);
+  playMelody(melody8, notes8, wholenote3);
+}
 
- 
-    divider = melody1[thisNote + 1];
-    if (divider > 0) {
-    
-      noteDuration = (wholenote1) / divider;
-    } else if (divider < 0) {
-     
-      noteDuration = (wholenote1) / abs(divider);
-      noteDuration *= 1.5; 
-    }
-
-    
-    tone(buzzer, melody1[thisNote], noteDuration*0.9);
- 
-    
-    delay(noteDuration);
-    
-    
-    noTone(buzzer);
-  }
-  for (int thisNote = 0; thisNote < notes2 * 2; thisNote = thisNote + 2) {
-
- 
-    divider = melody2[thisNote + 1];
-    if (divider > 0) {
-    
-      noteDuration = (wholenote2) / divider;
-    } else if (divider < 0) {
-     
-      noteDuration = (wholenote2) / abs(divider);
-      noteDuration *= 1.5; 
-    }
-
-    
-    tone(buzzer, melody2[thisNote], noteDuration*0.9);
- 
-    
-    delay(noteDuration);
-    
-    
-    noTone(buzzer);
-  }
-  for (int thisNote = 0; thisNote < notes3 * 2; thisNote = thisNote + 2) {
-
- 
-    divider = melody3[thisNote + 1];
-    if (divider > 0) {
-    
-      noteDuration = (wholenote3) / divider;
-    } else if (divider < 0) {
-     
-      noteDuration = (wholenote3) / abs(divider);
-      noteDuration *= 1.5; 
-    }
-
-    
-    tone(buzzer, melody3[thisNote], noteDuration*0.9);
- 
-    
-    delay(noteDuration);
-    
-    
-    noTone(buzzer);
-  }
-  for (int thisNote = 0; thisNote < notes4 * 2; thisNote = thisNote + 2) {
-
- 
-    divider = melody4[thisNote + 1];
-    if (divider > 0) {
-    
-      noteDuration = (wholenote4) / divider;
-    } else if (divider < 0) {
-     
-      noteDuration = (wholenote4) / abs(divider);
-      noteDuration *= 1.5; 
-    }
-
-    
-    tone(buzzer, melody4[thisNote], noteDuration*0.9);
- 
-    
-    delay(noteDuration);
-    
-    
-    noTone(buzzer);
-  }
-  for (int thisNote = 0; thisNote < notes5 * 2; thisNote = thisNote + 2) {
-
- 
-    divider = melody5[thisNote + 1];
-    if (divider > 0) {
-    
-      noteDuration = (wholenote2) / divider;
-    } else if (divider < 0) {
-     
-      noteDuration = (wholenote2) / abs(divider);
-      noteDuration *= 1.5; 
-    }
-
-    
-    tone(buzzer, melody5[thisNote], noteDuration*0.9);
- 
-    
-    delay(noteDuration);
-    
-    
-    noTone(buzzer);
-  }
-  for (int thisNote = 0; thisNote < notes6 * 2; thisNote = thisNote + 2) {
-
- 
-    divider = melody6[thisNote + 1];
-    if (divider > 0) {
-    
-      noteDuration = (wholenote4) / divider;
-    } else if (divider < 0) {
-     
-      noteDuration = (wholenote4) / abs(divider);
-      noteDuration *= 1.5; 
-    }
-
-    
-    tone(buzzer, melody6[thisNote], noteDuration*0.9);
- 
-    
-    delay(noteDuration);
-    
-    
-    noTone(buzzer);
-  }
-    for (int thisNote = 0; thisNote < notes7 * 2; thisNote = thisNote + 2) {
-
- 
-    divider = melody7[thisNote + 1];
-    if (divider > 0) {
-    
-      noteDuration = (wholenote2) / divider;
-    } else if (divider < 0) {
-     
-      noteDuration = (wholenote2) / abs(divider);
-      noteDuration *= 1.5; 
-    }
-
-    
-    tone(buzzer, melody7[thisNote], noteDuration*0.9);
- 
-    
-    delay(noteDuration);
-    
-    
-    noTone(buzzer);
-  }
-  for (int thisNote = 0; thisNote < notes8 * 2; thisNote = thisNote + 2) {
-
- 
-    divider = melody8[thisNote + 1];
-    if (divider > 0) {
-    
-      noteDuration = (wholenote3) / divider;
-    } else if (divider < 0) {
-     
-      noteDuration = (wholenote3) / abs(divider);
-      noteDuration *= 1.5; 
-    }
-
-    
-    tone(buzzer, melody8[thisNote], noteDuration*0.9);
- 
-    
-    delay(noteDuration);
-    
-    
-    noTone(buzzer);
-  }
- }
-
- void loop() {
+void loop() {
  // 難做死了，都後悔製作這個系列了
- }                               
+}

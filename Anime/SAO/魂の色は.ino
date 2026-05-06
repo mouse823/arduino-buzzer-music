@@ -1,6 +1,8 @@
 /* 
-魂の色は
+SAO Alicization War of Underworld OP2 魂の色は
 */
+
+#include <avr/pgmspace.h>
 
 #define NOTE_B0  31
 #define NOTE_C1  33
@@ -101,15 +103,10 @@
 #define NOTE_B8  7902
 #define REST 0
 
-
 int tempo = 92;
-
-
 int buzzer = A4;
 
-
-int melody[] = {
-
+const int melody[] PROGMEM = {
   NOTE_F5,16,NOTE_CS6,8,NOTE_CS6,6,NOTE_AS5,8,NOTE_GS5,16,NOTE_FS5,16,NOTE_AS5,4,REST,32,NOTE_FS5,16,NOTE_CS6,8,NOTE_CS6,6,NOTE_AS5,8,NOTE_GS5,16,NOTE_FS5,16,NOTE_AS5,16,NOTE_AS4,8,
   NOTE_GS5,7,REST,32,NOTE_FS5,16,NOTE_AS4,8,NOTE_F5,8,REST,32,NOTE_F5,16,NOTE_FS5,16,NOTE_GS5,16,
   NOTE_C7,128,NOTE_B6,128,NOTE_A6,128,NOTE_G6,128,NOTE_F6,128,NOTE_E6,128,NOTE_D6,128,NOTE_C6,128,NOTE_B5,128,NOTE_A5,128,NOTE_G5,128,NOTE_F5,128,NOTE_E5,128,NOTE_D5,128,NOTE_CS6,32,
@@ -140,43 +137,37 @@ int melody[] = {
   NOTE_AS5,8,REST,4,NOTE_B5,16,NOTE_AS5,3,REST,16,NOTE_B5,16,NOTE_AS5,3,REST,8,
   NOTE_GS5,16,NOTE_FS5,16,NOTE_AS6,16,NOTE_B6,16,NOTE_AS6,16,NOTE_B6,16,NOTE_CS7,16,NOTE_DS7,16,NOTE_F7,16,NOTE_FS7,16,NOTE_GS7,16,
 
-  
 };
 
-
-
 int notes = sizeof(melody) / sizeof(melody[0]) / 2;
-
-
 int wholenote = (60000 * 4) / tempo;
 
-int divider = 0, noteDuration = 0;
+void playMelody(const int melody[], int notes, int wholenote) {
+  for (int thisNote = 0; thisNote < notes * 2; thisNote += 2) {
 
-void setup() {
+    int pitch = pgm_read_word(&melody[thisNote]);
+    int divider = pgm_read_word(&melody[thisNote + 1]);
 
-  for (int thisNote = 0; thisNote < notes * 2; thisNote = thisNote + 2) {
+    int noteDuration;
 
- 
-    divider = melody[thisNote + 1];
     if (divider > 0) {
-    
-      noteDuration = (wholenote) / divider;
-    } else if (divider < 0) {
-     
-      noteDuration = (wholenote) / abs(divider);
-      noteDuration *= 1.5; 
+      // 正常音符
+      noteDuration = wholenote / divider;
+    } else {
+      // 負音符（1.5倍）
+      noteDuration = wholenote / abs(divider);
+      noteDuration = noteDuration * 1.5;
     }
 
-    
-    tone(buzzer, melody[thisNote], noteDuration*0.9);
-
-    
+    tone(buzzer, pitch, noteDuration * 0.9);
     delay(noteDuration);
-    
-    
     noTone(buzzer);
   }
 }
-void loop()
-{
+
+void setup() {
+  playMelody(melody, notes, wholenote);
+}
+
+void loop() {
 }

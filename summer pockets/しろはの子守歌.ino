@@ -1,6 +1,9 @@
 /* 
 Summer Pockets しろはの子守歌(小原好美)
 */
+
+#include <avr/pgmspace.h>
+
 #define NOTE_B0  31
 #define NOTE_C1  33
 #define NOTE_CS1 35
@@ -100,10 +103,10 @@ Summer Pockets しろはの子守歌(小原好美)
 #define NOTE_B8  7902
 #define REST 0
 
-int tempo = 79;
+int tempo =79;
 int buzzer = A4;
-int melody[] = 
-{  
+
+const int melody[] PROGMEM = {
   // ゆりかごの　うたを  //樹上的金絲雀
   NOTE_F5,32,NOTE_A5,32,NOTE_C6,5,NOTE_D6,8,NOTE_C6,8,NOTE_A5,4,NOTE_F5,4,NOTE_G5,3,NOTE_A5,8,NOTE_G5,4,REST,4,
   
@@ -151,27 +154,40 @@ int melody[] =
   
   // ねんねこよ  //祝你好夢 我的孩子
   NOTE_A5,3,NOTE_C6,8,NOTE_A5,4,NOTE_G5,4,NOTE_F5,-3,
-};
-int notes = sizeof(melody) / sizeof(melody[0]) / 2;
-int wholenote = (60000 * 4) / tempo;
-int divider = 0, noteDuration = 0;
-void setup() {
 
-  for (int thisNote = 0; thisNote < notes * 2; thisNote = thisNote + 2) {
-    divider = melody[thisNote + 1];
+};
+
+ int notes = sizeof(melody) / sizeof(melody[0]) / 2;
+ int wholenote = (60000 * 4) / tempo;
+
+void playMelody(const int melody[], int notes, int wholenote) {
+  for (int thisNote = 0; thisNote < notes * 2; thisNote += 2) {
+
+    int pitch = pgm_read_word(&melody[thisNote]);
+    int divider = pgm_read_word(&melody[thisNote + 1]);
+
+    int noteDuration;
+
     if (divider > 0) {
-      noteDuration = (wholenote) / divider;
-    } else if (divider < 0) {
-      noteDuration = (wholenote) / abs(divider);
-      noteDuration *= 1.5; 
+      // 正常音符
+      noteDuration = wholenote / divider;
+    } else {
+      // 負音符（1.5倍）
+      noteDuration = wholenote / abs(divider);
+      noteDuration = noteDuration * 1.5;
     }
-    tone(buzzer, melody[thisNote], noteDuration*0.9);
+
+    tone(buzzer, pitch, noteDuration * 0.9);
     delay(noteDuration);
     noTone(buzzer);
   }
 }
-void loop()
-{
+
+void setup() {
+  playMelody(melody, notes, wholenote);
+}
+
+void loop() {
   //    TT   快哭了
   //  雖然很簡單我還是調了3小時
 }

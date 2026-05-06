@@ -1,7 +1,8 @@
 /* 
-GENSHIN IMPECT  海祈島 BGM  
+GENSHIN IMPECT 待訴說的傳說
 */
 
+#include <avr/pgmspace.h>
 
 #define NOTE_B0  31
 #define NOTE_C1  33
@@ -102,15 +103,10 @@ GENSHIN IMPECT  海祈島 BGM
 #define NOTE_B8  7902
 #define REST 0
 
-
 int tempo = 60;
-
-
 int buzzer = A4;
 
-
-int melody[] = {
-  
+const int melody[] PROGMEM = {
   NOTE_C4,16,NOTE_FS4,16,NOTE_G4,16,NOTE_D5,16,NOTE_C4,16,NOTE_FS4,16,NOTE_G4,16,NOTE_D5,16,NOTE_C4,16,NOTE_FS4,16,NOTE_G4,16,NOTE_D5,16,NOTE_C4,16,NOTE_FS4,16,NOTE_G4,16,NOTE_D5,16,
   NOTE_C4,16,NOTE_FS4,16,NOTE_G4,16,NOTE_E5,16,
   
@@ -152,44 +148,37 @@ int melody[] = {
   
   
 
-    
 };
 
-
-
 int notes = sizeof(melody) / sizeof(melody[0]) / 2;
-
-
 int wholenote = (60000 * 4) / tempo;
 
-int divider = 0, noteDuration = 0;
+void playMelody(const int melody[], int notes, int wholenote) {
+  for (int thisNote = 0; thisNote < notes * 2; thisNote += 2) {
 
-void setup() {
+    int pitch = pgm_read_word(&melody[thisNote]);
+    int divider = pgm_read_word(&melody[thisNote + 1]);
 
-  for (int thisNote = 0; thisNote < notes * 2; thisNote = thisNote + 2) {
+    int noteDuration;
 
- 
-    divider = melody[thisNote + 1];
     if (divider > 0) {
-    
-      noteDuration = (wholenote) / divider;
-    } else if (divider < 0) {
-     
-      noteDuration = (wholenote) / abs(divider);
-      noteDuration *= 1.5; 
+      // 正常音符
+      noteDuration = wholenote / divider;
+    } else {
+      // 負音符（1.5倍）
+      noteDuration = wholenote / abs(divider);
+      noteDuration = noteDuration * 1.5;
     }
 
-    
-    tone(buzzer, melody[thisNote], noteDuration*0.9);
-
-    
+    tone(buzzer, pitch, noteDuration * 0.9);
     delay(noteDuration);
-    
-    
     noTone(buzzer);
   }
 }
 
+void setup() {
+  playMelody(melody, notes, wholenote);
+}
+
 void loop() {
- 
-}                         
+}

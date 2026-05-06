@@ -1,6 +1,9 @@
 /* 
 Summer Pockets 夏の子守歌
 */
+
+#include <avr/pgmspace.h>
+
 #define NOTE_B0  31
 #define NOTE_C1  33
 #define NOTE_CS1 35
@@ -100,11 +103,10 @@ Summer Pockets 夏の子守歌
 #define NOTE_B8  7902
 #define REST 0
 
-int tempo = 87;
+int tempo =87;
 int buzzer = A4;
-int melody[] = 
-{  
-  
+
+const int melody[] PROGMEM = {
   NOTE_E4,8,NOTE_A3,8,NOTE_C4,8,NOTE_E4,4,NOTE_C4,8,NOTE_D4,8,NOTE_E4,8,NOTE_E4,8,NOTE_A3,8,NOTE_D4,8,NOTE_A4,4,NOTE_G4,4,NOTE_D4,8,
   NOTE_E4,8,NOTE_G3,8,NOTE_B3,8,NOTE_E4,4,NOTE_E4,8,NOTE_D4,8,NOTE_G4,8,NOTE_E4,8,NOTE_G3,8,NOTE_E4,8,NOTE_B3,8,NOTE_B3,4,NOTE_D4,4,
   //00:14 -3
@@ -140,16 +142,12 @@ int melody[] =
   //重複
   NOTE_G3,8,REST,16,  NOTE_E4,8,NOTE_A3,8,NOTE_C4,8,NOTE_E4,4,NOTE_C4,8,NOTE_D4,8,NOTE_E4,8,NOTE_E4,8,NOTE_A3,8,NOTE_D4,8,NOTE_A4,4,NOTE_G4,4,NOTE_D4,8,
   NOTE_E4,8,NOTE_G3,8,NOTE_B3,8,NOTE_E4,4,NOTE_E4,8,NOTE_D4,8,NOTE_G4,8,NOTE_E4,8,NOTE_G3,8,NOTE_E4,8,NOTE_B3,8,NOTE_B3,4,NOTE_D4,4,
-  //
   NOTE_E4,8,NOTE_A3,8,NOTE_C4,8,NOTE_E4,4,NOTE_C4,8,NOTE_D4,8,NOTE_E4,8,NOTE_E4,8,NOTE_A3,8,NOTE_D4,8,NOTE_G4,4,NOTE_A4,4,NOTE_A3,8,
   NOTE_E4,8,NOTE_G3,8,NOTE_B3,8,NOTE_E4,4,NOTE_F4,4,NOTE_G4,8,NOTE_E4,8,NOTE_G3,8,NOTE_E4,8,NOTE_B3,8,NOTE_G3,4,NOTE_D4,4,
-
-  //
   NOTE_E4,8,NOTE_A3,8,NOTE_D4,8,NOTE_F4,4,NOTE_C4,8,NOTE_D4,8,NOTE_E4,8,NOTE_E4,8,NOTE_D4,4,NOTE_A4,4,NOTE_G4,8,NOTE_A3,8,NOTE_D4,8,
   NOTE_G4,8,NOTE_D3,8,NOTE_G3,8,NOTE_D4,4,NOTE_A4,8,NOTE_B4,8,NOTE_G4,8,NOTE_G4,8,NOTE_D4,8,NOTE_G3,8,NOTE_E4,4,
   NOTE_E4,8,NOTE_A4,8,NOTE_B4,8,NOTE_C5,4,NOTE_B4,4,NOTE_G4,8,NOTE_D4,3,NOTE_E4,4,NOTE_D4,8,   NOTE_G4,3,NOTE_D4,8,NOTE_D4,8,  NOTE_F4,8,NOTE_F3,8,NOTE_G3,8,NOTE_C4,4,NOTE_F4,8,NOTE_C4,8,NOTE_D4,8,NOTE_E4,3,REST,16, 
 
-  //
   NOTE_C4,8,NOTE_D4,8,NOTE_C4,8,NOTE_E4,8,NOTE_F4,8,
   NOTE_G4,-4,NOTE_C4,8,NOTE_C4,8,NOTE_A3,8,NOTE_D4,8,NOTE_C4,8,
   NOTE_D4,8,NOTE_E3,8,NOTE_G3,8,NOTE_C4,8,NOTE_E4,8,NOTE_C4,8,NOTE_E4,8,NOTE_F4,8,NOTE_G4,4,NOTE_B3,16,NOTE_G4,16,NOTE_A4,8,
@@ -158,7 +156,6 @@ int melody[] =
   NOTE_C4,16,NOTE_D4,16,NOTE_E4,4,NOTE_D4,8,NOTE_F4,8,NOTE_D4,8,NOTE_G4,4,
   NOTE_D4,8,NOTE_D4,8,NOTE_G3,8,NOTE_D4,8,NOTE_C4,8,NOTE_E4,8,NOTE_G3,8,NOTE_D4,8,NOTE_C4,8,NOTE_B3,4,NOTE_A3,8,NOTE_C4,4,
   
-  //
   NOTE_C4,8,NOTE_E4,8,NOTE_F4,8,NOTE_G4,3,NOTE_C4,8,NOTE_C4,8,NOTE_B3,8,NOTE_D4,8,NOTE_C4,8,NOTE_G4,8,NOTE_E3,8,NOTE_G3,8,
   NOTE_C4,8,NOTE_D4,8,NOTE_C4,8,NOTE_E4,8,NOTE_F4,8,NOTE_G4,4,NOTE_B3,16,NOTE_G4,16,NOTE_A4,8,NOTE_C4,4,NOTE_C5,4,NOTE_B4,8,NOTE_A3,8,NOTE_C4,8,
   NOTE_C4,8,NOTE_D4,8,NOTE_C4,8,NOTE_C5,8,NOTE_B4,8,NOTE_G4,8,NOTE_A3,8,NOTE_C4,8,NOTE_E4,8,NOTE_C4,-4,NOTE_A3,8,NOTE_C4,3,
@@ -167,26 +164,40 @@ int melody[] =
 
   NOTE_E4,4,NOTE_E5,4,NOTE_C5,4,NOTE_A4,4,NOTE_G4,4,NOTE_E4,4,NOTE_D4,4,NOTE_A3,4,NOTE_E3,32,NOTE_A3,32,NOTE_E4,6,REST,12,
   NOTE_E3,6,NOTE_A3,6,NOTE_E4,6,NOTE_A4,5,NOTE_E5,5,NOTE_E6,4,NOTE_A6,1,
+
 };
-int notes = sizeof(melody) / sizeof(melody[0]) / 2;
-int wholenote = (60000 * 4) / tempo;
-int divider = 0, noteDuration = 0;
-void setup() {
-  for (int thisNote = 0; thisNote < notes * 2; thisNote = thisNote + 2) {
-    divider = melody[thisNote + 1];
+
+ int notes = sizeof(melody) / sizeof(melody[0]) / 2;
+ int wholenote = (60000 * 4) / tempo;
+
+void playMelody(const int melody[], int notes, int wholenote) {
+  for (int thisNote = 0; thisNote < notes * 2; thisNote += 2) {
+
+    int pitch = pgm_read_word(&melody[thisNote]);
+    int divider = pgm_read_word(&melody[thisNote + 1]);
+
+    int noteDuration;
+
     if (divider > 0) {
-      noteDuration = (wholenote) / divider;
-    } else if (divider < 0) {
-      noteDuration = (wholenote) / abs(divider);
-      noteDuration *= 1.5; 
+      // 正常音符
+      noteDuration = wholenote / divider;
+    } else {
+      // 負音符（1.5倍）
+      noteDuration = wholenote / abs(divider);
+      noteDuration = noteDuration * 1.5;
     }
-    tone(buzzer, melody[thisNote], noteDuration*0.9);
+
+    tone(buzzer, pitch, noteDuration * 0.9);
     delay(noteDuration);
     noTone(buzzer);
   }
 }
-void loop()
-{
+
+void setup() {
+  playMelody(melody, notes, wholenote);
+}
+
+void loop() {
  // 不太想做OP&ED休息緩衝一下，有些音長我不確定?
  // 好想去巡禮!
 }

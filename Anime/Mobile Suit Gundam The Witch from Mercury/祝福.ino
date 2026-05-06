@@ -1,7 +1,7 @@
 /* 
 YOASOBI - 祝福 
 */
-
+#include <avr/pgmspace.h>
 #define NOTE_B0  31
 #define NOTE_C1  33
 #define NOTE_CS1 35
@@ -101,7 +101,6 @@ YOASOBI - 祝福
 #define NOTE_B8  7902
 #define REST 0
 
-
 int tempo = 84;
 int tempo1 = 83;
 int tempo2 = 85;
@@ -109,22 +108,15 @@ int tempo3 = 82;
 int tempo4 = 86;
 int buzzer = A4;
 
-
-
-
-int melody1[] = {
-/*
- 慢
- */
+const int melody1[] PROGMEM = {
+//慢
 NOTE_E5,16,NOTE_E5,16,NOTE_G5,16,NOTE_A5,16,NOTE_E5,16,NOTE_C6,16,NOTE_B5,32,REST,12,
 NOTE_E5,16,NOTE_A5,16,NOTE_G5,32,REST,12,NOTE_D5,16,NOTE_F5,16,NOTE_E5,32,REST,12,NOTE_B4,16,NOTE_C5,16,NOTE_F5,32,REST,12,
 NOTE_A4,16,NOTE_C5,16,NOTE_B4,32,REST,12,NOTE_C5,16,NOTE_D5,16,NOTE_E5,32,REST,12,NOTE_C5,16,NOTE_A5,16,NOTE_G5,16,NOTE_D4,16,
 NOTE_E5,16,NOTE_E5,16,NOTE_G5,16,NOTE_A5,16,NOTE_E5,16,NOTE_C6,16,NOTE_B5,32,REST,12,
-
 NOTE_E5,16,NOTE_A5,16,NOTE_G5,16,REST,16,NOTE_D5,16,NOTE_F5,16,NOTE_E5,32,REST,12,
 NOTE_C5,16,NOTE_D5,16,NOTE_E5,16,NOTE_F5,16,NOTE_G5,16,NOTE_A5,16,NOTE_A5,16,REST,16,NOTE_B5,16,NOTE_C6,16,NOTE_B5,16,REST,16,
 NOTE_E5,32,REST,32,NOTE_B5,16,NOTE_B5,16,NOTE_B5,16,NOTE_C6,16,NOTE_B5,16,NOTE_C6,16,
-
 NOTE_A4,16,NOTE_G4,16,NOTE_A4,16,NOTE_A3,32,NOTE_A4,32,NOTE_A3,32,REST,32,NOTE_A4,32,REST,32,NOTE_A3,32,REST,32,NOTE_AS4,6,NOTE_AS4,16,NOTE_G4,6,NOTE_G4,16,NOTE_GS4,16,
 NOTE_A4,16,NOTE_G4,16,NOTE_A4,16,NOTE_A3,32,NOTE_A4,32,NOTE_A3,32,REST,32,NOTE_A4,32,REST,32,NOTE_A3,32,REST,32,NOTE_AS4,6,NOTE_AS4,16,NOTE_G4,6,NOTE_G4,16,NOTE_GS4,16,
 NOTE_A4,16,NOTE_G4,16,NOTE_A4,16,NOTE_A3,32,NOTE_A4,32,NOTE_A3,32,REST,32,NOTE_A4,32,REST,32,NOTE_A3,32,REST,32,NOTE_AS4,6,NOTE_AS4,16,NOTE_G4,6,NOTE_G4,16,NOTE_GS4,16,
@@ -135,13 +127,8 @@ NOTE_C5,16,NOTE_E5,8,NOTE_C5,16,NOTE_A5,8,NOTE_G5,16,NOTE_A5,16,NOTE_E5,8,NOTE_A
 NOTE_C5,8,NOTE_E5,6,NOTE_C5,16,NOTE_C5,6,NOTE_A4,12,NOTE_C5,8,NOTE_A4,8,NOTE_C5,8,NOTE_A5,8,NOTE_A5,6,NOTE_B5,16,NOTE_G5,3,REST,8,
 NOTE_E5,8,NOTE_G5,8,NOTE_A5,8,NOTE_F5,8,NOTE_E5,8,NOTE_D5,8,NOTE_C5,8,NOTE_B4,8,NOTE_A4,8,REST,16,NOTE_B4,15,NOTE_B4,6,NOTE_C5,16,NOTE_C5,8,REST,8,
 };
-
-
-
-int melody2[] = {
-/*
- 正常
- */
+const int melody2[] PROGMEM = {
+//正常
 NOTE_F4,16,NOTE_C5,16,NOTE_C5,16,NOTE_C5,16,NOTE_C5,16,NOTE_D5,16,NOTE_E5,16,NOTE_G5,16,NOTE_A5,16,NOTE_E5,16,NOTE_C6,16,NOTE_B5,32,REST,12,
 NOTE_E5,16,NOTE_A5,16,NOTE_G5,32,REST,12,NOTE_D5,16,NOTE_F5,16,NOTE_E5,32,REST,12,NOTE_B4,16,NOTE_C5,16,NOTE_F5,32,REST,12,
 NOTE_A4,16,NOTE_C5,16,NOTE_B4,32,REST,12,NOTE_C5,16,NOTE_D5,16,NOTE_G5,16,REST,16,NOTE_G4,16,NOTE_AS4,16,NOTE_A4,16,REST,16,
@@ -149,10 +136,8 @@ NOTE_E5,16,NOTE_E5,16,NOTE_G5,16,NOTE_A5,16,NOTE_E5,16,NOTE_C6,16,NOTE_B5,16,RES
 NOTE_D5,16,NOTE_F5,16,NOTE_E5,16,REST,16,NOTE_F5,16,NOTE_G5,16,NOTE_A5,8,NOTE_A5,16,NOTE_A5,16,NOTE_A5,16,NOTE_A5,16,
 };
 
-int melody3[] = {
-  /*
- 快
- */
+const int melody3[] PROGMEM = {
+//快
 NOTE_B5,16,NOTE_C6,16,NOTE_B5,12,
 NOTE_A4,16,NOTE_B4,16,NOTE_D5,16,NOTE_G5,16,NOTE_FS5,16,NOTE_G5,16,NOTE_A5,16,NOTE_B5,8,NOTE_E6,16,NOTE_E6,8,
 NOTE_B5,16,NOTE_B5,16,NOTE_B5,8,NOTE_A5,8,NOTE_A5,16,NOTE_A5,16,NOTE_G5,16,NOTE_FS5,16,NOTE_G5,16,NOTE_A5,8,NOTE_D6,16,NOTE_D6,8,
@@ -164,20 +149,16 @@ NOTE_G5,16,NOTE_FS5,16,NOTE_G5,16,NOTE_A5,8,NOTE_D5,8,NOTE_A5,8,NOTE_D6,8,NOTE_C
 NOTE_B5,16,NOTE_A5,16,REST,16,NOTE_D5,16,NOTE_FS5,16,NOTE_FS5,16,NOTE_FS5,16,NOTE_G5,16,NOTE_FS5,16,NOTE_G5,16,
 };
 
-
-int melody4[] = {
-/*
- 正常
- */
+const int melody4[] PROGMEM = {
+//正常
 NOTE_E4,16,NOTE_D4,16,NOTE_E4,16,NOTE_E3,32,NOTE_E4,32,NOTE_E3,32,REST,32,NOTE_E4,32,REST,32,NOTE_E3,32,REST,32,NOTE_F4,8,NOTE_F4,32,REST,32,NOTE_F4,32,REST,32,NOTE_D4,6,NOTE_D4,16,NOTE_DS4,16,
 NOTE_E4,16,NOTE_D4,16,NOTE_E4,16,NOTE_E3,32,NOTE_E4,32,NOTE_E3,32,REST,32,NOTE_E4,32,REST,32,NOTE_E3,32,REST,32,NOTE_F4,8,NOTE_F4,32,REST,32,NOTE_F4,32,REST,32,NOTE_D4,6,NOTE_D4,16,NOTE_DS4,16,
 NOTE_E4,16,NOTE_D4,16,NOTE_E4,16,NOTE_E3,32,NOTE_E4,32,NOTE_E3,32,REST,32,NOTE_E4,32,REST,32,NOTE_E3,32,REST,32,NOTE_F4,8,NOTE_F4,32,REST,32,NOTE_F4,32,REST,32,NOTE_D4,6,NOTE_D4,16,NOTE_DS4,16,
 NOTE_E4,16,NOTE_D4,16,NOTE_E4,32,REST,32,NOTE_E3,32,NOTE_E4,32,NOTE_E3,32,NOTE_E4,32,REST,32,NOTE_E3,32,REST,32,
 };
-int melody5[] = {
-/*
- 慢慢
-*/
+
+const int melody5[] PROGMEM = {
+//慢慢
 NOTE_F4,8,NOTE_B4,16,NOTE_B4,16,NOTE_B4,16,NOTE_B4,16,NOTE_B4,16,NOTE_B4,16,NOTE_B4,16,NOTE_B4,12,NOTE_A4,12,
 NOTE_B4,8,NOTE_B4,16,NOTE_B4,16,NOTE_B4,16,NOTE_B4,12,NOTE_A4,12,
 NOTE_B4,8,NOTE_B4,16,NOTE_B4,16,NOTE_B4,16,NOTE_B4,16,NOTE_B4,16,NOTE_B4,16,NOTE_B4,16,NOTE_B4,12,NOTE_B4,12,
@@ -186,82 +167,51 @@ NOTE_B4,16,NOTE_B4,16,NOTE_C5,16,NOTE_B4,12,NOTE_A4,12,NOTE_B4,8,
 NOTE_B4,16,NOTE_B4,16,NOTE_B4,16,NOTE_B4,16,NOTE_A4,16,NOTE_B4,16,NOTE_A4,16,NOTE_B4,16,NOTE_A4,16,NOTE_B4,16,NOTE_C5,16,
 };
 
-
-int melody6[] = {
-/*
- 快快
- */
+const int melody6[] PROGMEM = {
+//快快
 NOTE_B4,8,
 NOTE_E5,8,NOTE_G5,8,NOTE_A5,8,NOTE_B5,16,NOTE_E5,16,NOTE_G5,16,NOTE_B5,16,NOTE_A5,8,NOTE_G5,16,NOTE_FS5,8,NOTE_B4,16,NOTE_A4,16,NOTE_B4,16,REST,16,
 NOTE_B4,16,NOTE_B4,16,NOTE_D5,16,NOTE_E5,16,NOTE_FS5,16,NOTE_G5,16,NOTE_A5,16,NOTE_FS5,8,NOTE_E5,16,NOTE_D5,8,NOTE_B4,16,NOTE_A4,16,NOTE_B4,16,REST,16,
 NOTE_E5,16,NOTE_G5,16,NOTE_A5,16,NOTE_B5,16,NOTE_E5,16,NOTE_G5,16,NOTE_B5,16,NOTE_A5,8,NOTE_G5,16,NOTE_FS5,8,NOTE_B4,16,NOTE_A4,16,NOTE_B4,16,REST,16,
-
-
 };
 
-
-int melody7[] = {
-  /*
-  正常
-  */
-
+const int melody7[] PROGMEM = {
+//正常
 NOTE_B4,16,NOTE_D5,16,NOTE_E5,16,NOTE_G5,16,NOTE_E5,16,NOTE_G5,16,NOTE_E5,16,NOTE_G5,16,NOTE_A5,16,NOTE_B5,16,NOTE_C6,8,NOTE_D6,16,
 NOTE_B5,4,REST,8,NOTE_B2,4,
 NOTE_G5,8,NOTE_A5,8,NOTE_B5,6,NOTE_B5,16,NOTE_E6,8,NOTE_B5,16,NOTE_B5,8,NOTE_A5,16,NOTE_A5,8,NOTE_FS4,8,NOTE_G4,8,NOTE_A4,6,NOTE_A4,16,NOTE_D5,8,
 NOTE_FS4,16,NOTE_FS4,8,NOTE_G4,16,NOTE_G4,8,NOTE_E5,8,NOTE_FS5,8,NOTE_G5,6,NOTE_G5,16,NOTE_C6,8,NOTE_G5,16,NOTE_G5,8,NOTE_FS5,16,NOTE_FS5,8,
 NOTE_G4,8,NOTE_A4,8,NOTE_B4,8,NOTE_A4,8,NOTE_B4,8,NOTE_D5,8,NOTE_E5,8,NOTE_D5,8,NOTE_D4,64,NOTE_G4,64,NOTE_B4,12,NOTE_A4,8,
-
 };
 
-int melody8[] = {
-  /*
-   快快
-   */
+const int melody8[] PROGMEM = {
+//快快
 NOTE_B5,8,REST,16,NOTE_B5,16,NOTE_E6,8,NOTE_B5,16,NOTE_B5,8,NOTE_A5,8,NOTE_A5,16,NOTE_A5,16,NOTE_G5,16,NOTE_FS5,16,NOTE_G5,16,
 NOTE_A5,8,NOTE_D5,8,NOTE_A5,8,NOTE_D6,8,NOTE_C6,8,NOTE_B5,8,NOTE_A5,8,NOTE_B5,8,NOTE_E5,8,REST,16,
 NOTE_D5,16,NOTE_E5,16,NOTE_FS5,16,NOTE_G5,16,NOTE_A5,16,NOTE_G5,8,REST,16,NOTE_E5,16,NOTE_G5,16,NOTE_A5,16,NOTE_B5,16,NOTE_C6,16,NOTE_B5,4,NOTE_E6,6,NOTE_DS6,4,
 };
 
-
-int melody9[] = {
-  /*
-  快
-  */
-  
-  NOTE_DS5,16,NOTE_GS5,16,NOTE_G5,16,NOTE_GS5,16,NOTE_AS5,16,NOTE_C6,8,NOTE_F6,16,NOTE_F6,8,NOTE_C6,8,NOTE_C6,8,NOTE_AS5,16,NOTE_AS5,8,NOTE_AS5,16,
-  NOTE_GS5,16,NOTE_G5,16,NOTE_GS5,16,NOTE_AS5,8,NOTE_DS6,16,NOTE_DS6,8,NOTE_G5,16,NOTE_G5,16,NOTE_G5,8,NOTE_F5,16,NOTE_GS5,8,NOTE_GS5,16,NOTE_G5,16,NOTE_GS5,16,NOTE_AS5,16,
-  NOTE_C6,8,NOTE_F6,16,NOTE_F6,8,NOTE_C6,16,NOTE_C6,16,NOTE_C6,8,NOTE_AS5,8,NOTE_C5,16,NOTE_DS5,16,NOTE_C5,16,NOTE_DS5,16,NOTE_G5,16,NOTE_G5,16,NOTE_GS5,16,NOTE_G5,16,NOTE_DS5,8,NOTE_DS5,16,NOTE_F5,16,NOTE_AS4,8,NOTE_C5,16,NOTE_C5,8,
-  NOTE_GS5,16,NOTE_G5,16,NOTE_GS5,16,NOTE_AS5,16,NOTE_C6,8,NOTE_F6,16,NOTE_F6,8,NOTE_C6,16,NOTE_C6,16,NOTE_C6,8,NOTE_AS5,8,NOTE_AS5,16,NOTE_AS5,16,NOTE_GS5,16,NOTE_G5,16,NOTE_GS5,16,
-  NOTE_AS5,8,NOTE_DS5,8,NOTE_AS5,8,NOTE_DS6,8,NOTE_CS6,8,NOTE_C6,8,NOTE_AS5,8,NOTE_GS5,8,NOTE_F5,4,NOTE_C6,6,NOTE_AS5,16,REST,12,
-  
-  
-  
-  NOTE_DS5,16,NOTE_GS5,16,NOTE_G5,8,NOTE_GS5,16,NOTE_AS5,16,NOTE_AS5,16,
-  
-  
-  
-  
-  NOTE_GS5,8,NOTE_AS4,8,NOTE_C5,8,NOTE_F5,8,NOTE_C5,4,NOTE_B4,12,NOTE_AS4,12,NOTE_GS4,16,NOTE_AS4,8,NOTE_GS4,8,NOTE_AS4,8,NOTE_DS5,8,
-  NOTE_F4,8,NOTE_C5,8,NOTE_DS5,8,NOTE_F5,8,NOTE_C5,8,NOTE_F4,8,NOTE_GS5,8,NOTE_F5,8,NOTE_E5,8,NOTE_AS4,8,NOTE_C5,8,NOTE_G5,8,NOTE_GS5,8,NOTE_G5,8,NOTE_DS5,8,NOTE_AS4,8,NOTE_C5,8,
-
-
-  
-  NOTE_DS5,16,NOTE_DS5,16,NOTE_GS5,16,NOTE_G5,16,NOTE_GS5,16,NOTE_AS5,16,NOTE_C6,8,NOTE_F6,16,NOTE_F6,8,NOTE_C6,16,NOTE_C6,16,
-  NOTE_AS5,8,NOTE_AS5,16,NOTE_AS5,16,NOTE_C6,16,NOTE_AS5,16,NOTE_GS5,16,NOTE_G5,16,NOTE_GS5,16,
-  NOTE_AS5,8,NOTE_DS5,8,NOTE_AS5,8,NOTE_DS6,8,NOTE_CS6,8,NOTE_C6,8,NOTE_AS5,8,NOTE_GS5,8,NOTE_F5,8,NOTE_C6,8,NOTE_F5,8,NOTE_C6,8,NOTE_DS6,8,
-  NOTE_GS5,8,NOTE_G5,8,NOTE_GS5,8,NOTE_AS5,4,NOTE_CS6,4,NOTE_C6,8,NOTE_AS4,8,NOTE_DS5,8,NOTE_G4,8,NOTE_F5,8,NOTE_C6,8,NOTE_F5,8,NOTE_C6,16,NOTE_AS5,16,REST,16,
-  NOTE_DS5,16,NOTE_G5,16,NOTE_G5,16,NOTE_G5,16,NOTE_GS5,16,NOTE_G5,16,NOTE_GS5,16,
-
-  
+const int melody9[] PROGMEM = {
+//快
+NOTE_DS5,16,NOTE_GS5,16,NOTE_G5,16,NOTE_GS5,16,NOTE_AS5,16,NOTE_C6,8,NOTE_F6,16,NOTE_F6,8,NOTE_C6,8,NOTE_C6,8,NOTE_AS5,16,NOTE_AS5,8,NOTE_AS5,16,
+NOTE_GS5,16,NOTE_G5,16,NOTE_GS5,16,NOTE_AS5,8,NOTE_DS6,16,NOTE_DS6,8,NOTE_G5,16,NOTE_G5,16,NOTE_G5,8,NOTE_F5,16,NOTE_GS5,8,NOTE_GS5,16,NOTE_G5,16,NOTE_GS5,16,NOTE_AS5,16,
+NOTE_C6,8,NOTE_F6,16,NOTE_F6,8,NOTE_C6,16,NOTE_C6,16,NOTE_C6,8,NOTE_AS5,8,NOTE_C5,16,NOTE_DS5,16,NOTE_C5,16,NOTE_DS5,16,NOTE_G5,16,NOTE_G5,16,NOTE_GS5,16,NOTE_G5,16,NOTE_DS5,8,NOTE_DS5,16,NOTE_F5,16,NOTE_AS4,8,NOTE_C5,16,NOTE_C5,8,
+NOTE_GS5,16,NOTE_G5,16,NOTE_GS5,16,NOTE_AS5,16,NOTE_C6,8,NOTE_F6,16,NOTE_F6,8,NOTE_C6,16,NOTE_C6,16,NOTE_C6,8,NOTE_AS5,8,NOTE_AS5,16,NOTE_AS5,16,NOTE_GS5,16,NOTE_G5,16,NOTE_GS5,16,
+NOTE_AS5,8,NOTE_DS5,8,NOTE_AS5,8,NOTE_DS6,8,NOTE_CS6,8,NOTE_C6,8,NOTE_AS5,8,NOTE_GS5,8,NOTE_F5,4,NOTE_C6,6,NOTE_AS5,16,REST,12,
+NOTE_DS5,16,NOTE_GS5,16,NOTE_G5,8,NOTE_GS5,16,NOTE_AS5,16,NOTE_AS5,16,
+NOTE_GS5,8,NOTE_AS4,8,NOTE_C5,8,NOTE_F5,8,NOTE_C5,4,NOTE_B4,12,NOTE_AS4,12,NOTE_GS4,16,NOTE_AS4,8,NOTE_GS4,8,NOTE_AS4,8,NOTE_DS5,8,
+NOTE_F4,8,NOTE_C5,8,NOTE_DS5,8,NOTE_F5,8,NOTE_C5,8,NOTE_F4,8,NOTE_GS5,8,NOTE_F5,8,NOTE_E5,8,NOTE_AS4,8,NOTE_C5,8,NOTE_G5,8,NOTE_GS5,8,NOTE_G5,8,NOTE_DS5,8,NOTE_AS4,8,NOTE_C5,8,
+NOTE_DS5,16,NOTE_DS5,16,NOTE_GS5,16,NOTE_G5,16,NOTE_GS5,16,NOTE_AS5,16,NOTE_C6,8,NOTE_F6,16,NOTE_F6,8,NOTE_C6,16,NOTE_C6,16,
+NOTE_AS5,8,NOTE_AS5,16,NOTE_AS5,16,NOTE_C6,16,NOTE_AS5,16,NOTE_GS5,16,NOTE_G5,16,NOTE_GS5,16,
+NOTE_AS5,8,NOTE_DS5,8,NOTE_AS5,8,NOTE_DS6,8,NOTE_CS6,8,NOTE_C6,8,NOTE_AS5,8,NOTE_GS5,8,NOTE_F5,8,NOTE_C6,8,NOTE_F5,8,NOTE_C6,8,NOTE_DS6,8,
+NOTE_GS5,8,NOTE_G5,8,NOTE_GS5,8,NOTE_AS5,4,NOTE_CS6,4,NOTE_C6,8,NOTE_AS4,8,NOTE_DS5,8,NOTE_G4,8,NOTE_F5,8,NOTE_C6,8,NOTE_F5,8,NOTE_C6,16,NOTE_AS5,16,REST,16,
+NOTE_DS5,16,NOTE_G5,16,NOTE_G5,16,NOTE_G5,16,NOTE_GS5,16,NOTE_G5,16,NOTE_GS5,16,
 };
-int melody10[] = {
-/*
- 正常
- */
+
+const int melody10[] PROGMEM = {
+//正常
 NOTE_F4,16,NOTE_DS4,16,NOTE_F4,16,NOTE_F3,32,NOTE_F4,32,NOTE_F3,32,NOTE_F4,32,REST,32,NOTE_F3,32,REST,32,
 NOTE_FS4,8,NOTE_FS4,32,REST,32,NOTE_FS4,32,REST,32,NOTE_DS4,6,NOTE_DS4,16,NOTE_E4,16,
-
-
 NOTE_F4,16,NOTE_DS4,16,NOTE_F4,16,NOTE_F3,32,NOTE_F4,32,NOTE_F3,32,REST,32,NOTE_F4,32,REST,32,NOTE_F3,32,REST,32,
 NOTE_FS4,8,NOTE_FS4,32,REST,32,NOTE_FS4,32,REST,32,NOTE_DS4,6,NOTE_DS4,16,NOTE_E4,16,
 NOTE_F4,16,NOTE_DS4,16,NOTE_F4,16,NOTE_F3,32,NOTE_F4,32,NOTE_F3,32,REST,32,NOTE_F4,32,REST,32,NOTE_F3,32,REST,32,
@@ -269,7 +219,6 @@ NOTE_FS4,8,NOTE_FS4,32,REST,32,NOTE_FS4,32,REST,32,NOTE_DS4,6,NOTE_DS4,16,NOTE_E
 NOTE_F5,16,NOTE_DS5,16,NOTE_F5,16,NOTE_F3,32,NOTE_F4,32,NOTE_F3,32,REST,32,NOTE_F4,32,REST,32,NOTE_F3,32,REST,32,
 NOTE_FS5,8,NOTE_FS5,32,REST,32,NOTE_FS5,32,REST,32,NOTE_DS5,6,NOTE_DS5,16,NOTE_E5,16,
 };
-
 
 int notes1 = sizeof(melody1) / sizeof(melody1[0]) / 2;
 int notes2 = sizeof(melody2) / sizeof(melody2[0]) / 2;
@@ -281,251 +230,46 @@ int notes7 = sizeof(melody7) / sizeof(melody7[0]) / 2;
 int notes8 = sizeof(melody8) / sizeof(melody8[0]) / 2;
 int notes9 = sizeof(melody9) / sizeof(melody9[0]) / 2;
 int notes10 = sizeof(melody10) / sizeof(melody10[0]) / 2;
-int wholenote = (60000 * 4) / tempo;/*正常*/
-int wholenote1 = (60000 * 4) / tempo1;/*慢*/
-int wholenote2 = (60000 * 4) / tempo2;/*快*/
-int wholenote3 = (60000 * 4) / tempo3;/*慢慢*/
-int wholenote4 = (60000 * 4) / tempo4;/*快快*/
-int divider = 0, noteDuration = 0;
+int wholenote = (60000 * 4) / tempo;   //正常
+int wholenote1 = (60000 * 4) / tempo1; //慢
+int wholenote2 = (60000 * 4) / tempo2; //快
+int wholenote3 = (60000 * 4) / tempo3; //慢慢
+int wholenote4 = (60000 * 4) / tempo4; //快快
+
+void playMelody(const int melody[], int notes, int wholenote) {
+  for (int thisNote = 0; thisNote < notes * 2; thisNote += 2) {
+
+    int pitch = pgm_read_word(&melody[thisNote]);
+    int divider = pgm_read_word(&melody[thisNote + 1]);
+
+    int noteDuration;
+
+    if (divider > 0) {
+      // 正常音符
+      noteDuration = wholenote / divider;
+    } else {
+      // 負音符（1.5倍）
+      noteDuration = wholenote / abs(divider);
+      noteDuration = noteDuration * 1.5;
+    }
+
+    tone(buzzer, pitch, noteDuration * 0.9);
+    delay(noteDuration);
+    noTone(buzzer);
+  }
+}
 
 void setup() {
-
-
-
- 
-
-  
-  for (int thisNote = 0; thisNote < notes1* 2; thisNote = thisNote + 2) {
-
- 
-    divider = melody1[thisNote + 1];
-    if (divider > 0) {
-    
-      noteDuration = (wholenote1) / divider;
-    } else if (divider < 0) {
-     
-      noteDuration = (wholenote1) / abs(divider);
-      noteDuration *= 1.5; 
-    }
-
-    
-    tone(buzzer, melody1[thisNote], noteDuration*0.9);
-
-    
-    delay(noteDuration);
-    
-    
-    noTone(buzzer);
-
-
-
-    
-  }
-   for (int thisNote = 0; thisNote < notes2 * 2; thisNote = thisNote + 2) {
-
- 
-    divider = melody2[thisNote + 1];
-    if (divider > 0) {
-    
-      noteDuration = (wholenote) / divider;
-    } else if (divider < 0) {
-     
-      noteDuration = (wholenote) / abs(divider);
-      noteDuration *= 1.5; 
-    }
-
-    
-    tone(buzzer, melody2[thisNote], noteDuration*0.9);
-
-    
-    delay(noteDuration);
-    
-    
-    noTone(buzzer);
-  }
-  
-  for (int thisNote = 0; thisNote < notes3 * 2; thisNote = thisNote + 2) {
-
- 
-    divider = melody3[thisNote + 1];
-    if (divider > 0) {
-    
-      noteDuration = (wholenote2) / divider;
-    } else if (divider < 0) {
-     
-      noteDuration = (wholenote2) / abs(divider);
-      noteDuration *= 1.5; 
-    }
-
-    
-    tone(buzzer, melody3[thisNote], noteDuration*0.9);
-
-    
-    delay(noteDuration);
-    
-    
-    noTone(buzzer);
-  }
-  
-  for (int thisNote = 0; thisNote < notes4 * 2; thisNote = thisNote + 2) {
-
- 
-    divider = melody4[thisNote + 1];
-    if (divider > 0) {
-    
-      noteDuration = (wholenote) / divider;
-    } else if (divider < 0) {
-     
-      noteDuration = (wholenote) / abs(divider);
-      noteDuration *= 1.5; 
-    }
-
-    
-    tone(buzzer, melody4[thisNote], noteDuration*0.9);
-
-    
-    delay(noteDuration);
-    
-    
-    noTone(buzzer);
-  }
-  
-  for (int thisNote = 0; thisNote < notes5 * 2; thisNote = thisNote + 2) {
-
- 
-    divider = melody5[thisNote + 1];
-    if (divider > 0) {
-    
-      noteDuration = (wholenote3) / divider;
-    } else if (divider < 0) {
-     
-      noteDuration = (wholenote3) / abs(divider);
-      noteDuration *= 1.5; 
-    }
-
-    
-    tone(buzzer, melody5[thisNote], noteDuration*0.9);
-
-    
-    delay(noteDuration);
-    
-    
-    noTone(buzzer);
-  }
-
-  for (int thisNote = 0; thisNote < notes6 * 2; thisNote = thisNote + 2) {
-
- 
-    divider = melody6[thisNote + 1];
-    if (divider > 0) {
-    
-      noteDuration = (wholenote4) / divider;
-    } else if (divider < 0) {
-     
-      noteDuration = (wholenote4) / abs(divider);
-      noteDuration *= 1.5; 
-    }
-
-    
-    tone(buzzer, melody6[thisNote], noteDuration*0.9);
-
-    
-    delay(noteDuration);
-    
-    
-    noTone(buzzer);
-  }
-
-  for (int thisNote = 0; thisNote < notes7 * 2; thisNote = thisNote + 2) {
-
- 
-    divider = melody7[thisNote + 1];
-    if (divider > 0) {
-    
-      noteDuration = (wholenote) / divider;
-    } else if (divider < 0) {
-     
-      noteDuration = (wholenote) / abs(divider);
-      noteDuration *= 1.5; 
-    }
-
-    
-    tone(buzzer, melody7[thisNote], noteDuration*0.9);
-
-    
-    delay(noteDuration);
-    
-    
-    noTone(buzzer);
-  }
-  for (int thisNote = 0; thisNote < notes8 * 2; thisNote = thisNote + 2) {
-
- 
-    divider = melody8[thisNote + 1];
-    if (divider > 0) {
-    
-      noteDuration = (wholenote4) / divider;
-    } else if (divider < 0) {
-     
-      noteDuration = (wholenote4) / abs(divider);
-      noteDuration *= 1.5; 
-    }
-
-    
-    tone(buzzer, melody8[thisNote], noteDuration*0.9);
-
-    
-    delay(noteDuration);
-    
-    
-    noTone(buzzer);
-  }
-
-  for (int thisNote = 0; thisNote < notes9 * 2; thisNote = thisNote + 2) {
-
- 
-    divider = melody9[thisNote + 1];
-    if (divider > 0) {
-    
-      noteDuration = (wholenote2) / divider;
-    } else if (divider < 0) {
-     
-      noteDuration = (wholenote2) / abs(divider);
-      noteDuration *= 1.5; 
-    }
-
-    
-    tone(buzzer, melody9[thisNote], noteDuration*0.9);
-
-    
-    delay(noteDuration);
-    
-    
-    noTone(buzzer);
-  }
-  for (int thisNote = 0; thisNote < notes10 * 2; thisNote = thisNote + 2) {
-
- 
-    divider = melody10[thisNote + 1];
-    if (divider > 0) {
-    
-      noteDuration = (wholenote) / divider;
-    } else if (divider < 0) {
-     
-      noteDuration = (wholenote) / abs(divider);
-      noteDuration *= 1.5; 
-    }
-
-    
-    tone(buzzer, melody10[thisNote], noteDuration*0.9);
-
-    
-    delay(noteDuration);
-    
-    
-    noTone(buzzer);
-  }
-  
+  playMelody(melody1, notes1, wholenote1);
+  playMelody(melody2, notes2, wholenote);
+  playMelody(melody3, notes3, wholenote2);
+  playMelody(melody4, notes4, wholenote);
+  playMelody(melody5, notes5, wholenote3);
+  playMelody(melody6, notes6, wholenote4);
+  playMelody(melody7, notes7, wholenote);
+  playMelody(melody8, notes8, wholenote4);
+  playMelody(melody9, notes9, wholenote2);
+  playMelody(melody10, notes10, wholenote);
 }
 void loop()
 {

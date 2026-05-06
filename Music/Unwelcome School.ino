@@ -1,6 +1,8 @@
 /* 
-Unwelcome School   
+蔚藍檔案-Unwelcome School   
 */
+
+#include <avr/pgmspace.h>
 
 #define NOTE_B0  31
 #define NOTE_C1  33
@@ -103,11 +105,9 @@ Unwelcome School
 
 int tempo = 89;
 int tempo1 = 90;
-
 int buzzer = A4;
 
-int melody[] = {   
-  
+const int melody[] PROGMEM = {
   NOTE_A4,32,REST,12,NOTE_C5,32,REST,12,NOTE_DS5,12,NOTE_E5,32,REST,12,NOTE_GS4,32,REST,32,NOTE_A4,32,REST,32,
   NOTE_C5,32,REST,32,NOTE_D5,32,REST,32,NOTE_C5,32,REST,32,NOTE_DS5,16,NOTE_DS5,32,NOTE_E5,32,REST,8,
   NOTE_G5,32,REST,32,NOTE_FS5,32,REST,32,NOTE_F5,32,REST,32,NOTE_DS5,32,REST,32,NOTE_D5,32,REST,32,NOTE_C5,32,REST,32,
@@ -133,11 +133,9 @@ int melody[] = {
   NOTE_C6,32,REST,32,NOTE_D6,32,REST,32,NOTE_C6,32,REST,32,NOTE_DS6,16,NOTE_DS6,32,NOTE_E6,32,REST,8,
   NOTE_G6,32,REST,32,NOTE_FS6,32,REST,32,NOTE_F6,32,REST,32,NOTE_DS6,32,REST,32,NOTE_E6,32,REST,32,NOTE_F6,32,REST,32,
   NOTE_FS6,32,REST,32,NOTE_G6,32,REST,32,NOTE_GS6,32,REST,32,NOTE_GS6,32,REST,32,NOTE_A6,32,REST,32,NOTE_A6,32,REST,32,NOTE_B6,32,REST,6,REST,32,
-
 };
 
-int melody1[] = { 
-  
+const int melody1[] PROGMEM = {
   NOTE_E6,16,NOTE_DS6,32,REST,32,NOTE_E6,16,NOTE_F6,32,REST,32,NOTE_E6,16,NOTE_D6,32,REST,32,NOTE_C6,16,NOTE_D6,32,REST,32,
   NOTE_E6,16,NOTE_DS6,32,REST,32,NOTE_E6,16,NOTE_F6,32,REST,32,NOTE_E6,16,NOTE_D6,32,REST,32,NOTE_C6,16,NOTE_B5,32,REST,32,NOTE_A5,8,
   NOTE_A5,16,NOTE_A6,32,REST,32,NOTE_GS5,16,NOTE_GS6,32,REST,32,NOTE_G5,16,NOTE_G6,32,REST,32,NOTE_FS5,16,NOTE_FS6,32,REST,32,
@@ -154,10 +152,9 @@ int melody1[] = {
   NOTE_E6,16,NOTE_DS6,32,REST,32,NOTE_E6,16,NOTE_F6,32,REST,32,NOTE_E6,16,NOTE_D6,32,REST,32,NOTE_C6,16,NOTE_D6,32,REST,32,
   NOTE_E6,16,NOTE_DS6,32,REST,32,NOTE_E6,16,NOTE_F6,32,REST,32,NOTE_E6,16,NOTE_D6,32,REST,32,NOTE_C6,16,NOTE_B5,32,REST,32,NOTE_A5,8,
   NOTE_DS5,16,NOTE_C5,32,REST,32,NOTE_D5,16,NOTE_C5,32,REST,32,NOTE_A4,16,NOTE_C5,32,REST,32,NOTE_DS5,16,NOTE_C5,32,REST,32,NOTE_D5,16,NOTE_C5,32,REST,16,
-
 };
-int melody2[] = { 
-  
+
+const int melody2[] PROGMEM = {
   NOTE_E2,32,REST,32,NOTE_FS2,32,REST,32,NOTE_GS2,32,REST,32,NOTE_A4,32,REST,12,NOTE_C5,32,REST,12,NOTE_DS5,12,NOTE_E5,32,REST,16,
   NOTE_GS4,32,REST,32,NOTE_A4,32,REST,32,NOTE_C5,32,REST,32,NOTE_D5,32,REST,32,NOTE_C5,32,REST,32,NOTE_DS5,16,NOTE_DS5,32,NOTE_E5,32,REST,8,
   NOTE_G5,32,REST,32,NOTE_FS5,32,REST,32,NOTE_F5,32,REST,32,NOTE_DS5,32,REST,32,NOTE_D5,32,REST,32,NOTE_C5,32,REST,32,
@@ -173,10 +170,9 @@ int melody2[] = {
   NOTE_C6,32,REST,12,NOTE_DS6,12,NOTE_E6,32,REST,16,NOTE_GS5,32,REST,32,NOTE_A5,32,REST,32,NOTE_C6,32,REST,32,NOTE_D6,32,REST,32,NOTE_C6,32,REST,32,NOTE_DS6,16,NOTE_DS6,32,NOTE_E6,32,REST,8,
   NOTE_G6,32,REST,32,NOTE_FS6,32,REST,32,NOTE_F6,32,REST,32,NOTE_DS6,32,REST,32,NOTE_E6,32,REST,32,NOTE_F6,32,REST,32,
   NOTE_FS6,32,REST,32,NOTE_G6,32,REST,32,NOTE_GS6,32,REST,32,NOTE_GS6,32,REST,32,NOTE_A6,32,REST,32,NOTE_A6,32,REST,32,NOTE_B6,32,REST,8,REST,12,
-
 };
-int melody3[]{
 
+const int melody3[] PROGMEM = {
   NOTE_A6,32,NOTE_G6,32,NOTE_A6,32,NOTE_C7,32,NOTE_A6,32,NOTE_G6,32,NOTE_A6,32,NOTE_C7,32,NOTE_A6,32,NOTE_G6,32,NOTE_A6,32,NOTE_C7,32,NOTE_A6,32,NOTE_G6,32,NOTE_A6,32,NOTE_C7,32,NOTE_A6,32,NOTE_G6,32,NOTE_A6,32,NOTE_C7,32,
   NOTE_A6,32,NOTE_G6,32,NOTE_E6,32,NOTE_DS6,32,NOTE_D6,32,NOTE_C6,32,NOTE_A5,32,NOTE_G5,32,NOTE_DS5,32,NOTE_D5,32,NOTE_C5,32,NOTE_A4,32,
   NOTE_D5,32,NOTE_DS5,32,NOTE_E5,32,NOTE_G5,32,NOTE_A5,32,NOTE_G5,32,NOTE_A5,32,NOTE_C6,32,NOTE_D6,32,NOTE_DS6,32,NOTE_F6,32,NOTE_G6,32,NOTE_A6,32,NOTE_C7,32,NOTE_D7,32,NOTE_DS7,32,NOTE_E7,8,REST,4,REST,32,
@@ -200,7 +196,6 @@ int melody3[]{
   NOTE_E6,16,NOTE_DS6,32,REST,32,NOTE_E6,16,NOTE_F6,32,REST,32,NOTE_E6,16,NOTE_D6,32,REST,32,NOTE_C6,16,NOTE_D6,32,REST,32,NOTE_E6,16,NOTE_DS6,32,REST,32,NOTE_E6,16,NOTE_F6,32,REST,32,NOTE_E6,16,NOTE_D6,32,REST,32,NOTE_C6,16,NOTE_B5,32,REST,32,
   NOTE_A5,8,NOTE_DS5,16,NOTE_C5,32,REST,32,NOTE_DS5,16,NOTE_C5,32,REST,32,NOTE_A4,16,NOTE_C5,32,REST,32,NOTE_DS5,16,NOTE_C5,32,REST,32,NOTE_DS5,16,NOTE_C5,32,REST,8,
   NOTE_E2,8,NOTE_A1,32,REST,8,NOTE_DS5,16,NOTE_C5,32,REST,32,NOTE_DS5,16,NOTE_C5,32,REST,32,NOTE_A4,16,NOTE_C5,32,REST,32,NOTE_DS5,16,NOTE_C5,32,REST,32,NOTE_DS5,16,NOTE_C5,32,
-  
 };
 
 int notes = sizeof(melody) / sizeof(melody[0]) / 2;
@@ -209,99 +204,36 @@ int notes2 = sizeof(melody2) / sizeof(melody2[0]) / 2;
 int notes3 = sizeof(melody3) / sizeof(melody3[0]) / 2;
 int wholenote = (60000 * 4) / tempo;
 int wholenote1 = (60000 * 4) / tempo1;
-int divider = 0, noteDuration = 0;
 
-void setup() {
+void playMelody(const int melody[], int notes, int wholenote) {
+  for (int thisNote = 0; thisNote < notes * 2; thisNote += 2) {
 
-  for (int thisNote = 0; thisNote < notes * 2; thisNote = thisNote + 2) {
+    int pitch = pgm_read_word(&melody[thisNote]);
+    int divider = pgm_read_word(&melody[thisNote + 1]);
 
- 
-    divider = melody[thisNote + 1];
+    int noteDuration;
+
     if (divider > 0) {
-    
-      noteDuration = (wholenote) / divider;
-    } else if (divider < 0) {
-     
-      noteDuration = (wholenote) / abs(divider);
-      noteDuration *= 1.5; 
+      // 正常音符
+      noteDuration = wholenote / divider;
+    } else {
+      // 負音符（1.5倍）
+      noteDuration = wholenote / abs(divider);
+      noteDuration = noteDuration * 1.5;
     }
 
-    
-    tone(buzzer, melody[thisNote], noteDuration*0.9);
-
-    
+    tone(buzzer, pitch, noteDuration * 0.9);
     delay(noteDuration);
-    
-    
-    noTone(buzzer);
-  }
-  for (int thisNote = 0; thisNote < notes1 * 2; thisNote = thisNote + 2) {
-
- 
-    divider = melody1[thisNote + 1];
-    if (divider > 0) {
-    
-      noteDuration = (wholenote1) / divider;
-    } else if (divider < 0) {
-     
-      noteDuration = (wholenote1) / abs(divider);
-      noteDuration *= 1.5; 
-    }
-
-    
-    tone(buzzer, melody1[thisNote], noteDuration*0.9);
-
-    
-    delay(noteDuration);
-    
-    
-    noTone(buzzer);
-  }
-  for (int thisNote = 0; thisNote < notes2 * 2; thisNote = thisNote + 2) {
-
- 
-    divider = melody2[thisNote + 1];
-    if (divider > 0) {
-    
-      noteDuration = (wholenote) / divider;
-    } else if (divider < 0) {
-     
-      noteDuration = (wholenote) / abs(divider);
-      noteDuration *= 1.5; 
-    }
-
-    
-    tone(buzzer, melody2[thisNote], noteDuration*0.9);
-
-    
-    delay(noteDuration);
-    
-    
-    noTone(buzzer);
-  }
-  for (int thisNote = 0; thisNote < notes3 * 2; thisNote = thisNote + 2) {
-
- 
-    divider = melody3[thisNote + 1];
-    if (divider > 0) {
-    
-      noteDuration = (wholenote1) / divider;
-    } else if (divider < 0) {
-     
-      noteDuration = (wholenote1) / abs(divider);
-      noteDuration *= 1.5; 
-    }
-
-    
-    tone(buzzer, melody3[thisNote], noteDuration*0.9);
-
-    
-    delay(noteDuration);
-    
-    
     noTone(buzzer);
   }
 }
-void loop()
-{
+
+void setup() {
+  playMelody(melody, notes, wholenote);
+  playMelody(melody1, notes1, wholenote1);
+  playMelody(melody2, notes2, wholenote);
+  playMelody(melody3, notes3, wholenote1);
+}
+
+void loop() {
 }

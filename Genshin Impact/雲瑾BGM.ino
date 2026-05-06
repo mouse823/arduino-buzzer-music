@@ -1,6 +1,8 @@
-/* 
-GENSHIN IMPECT 雲瑾 BGM 
+/*
+Genshin Impact 快意新詞
 */
+
+#include <avr/pgmspace.h>
 
 #define NOTE_B0  31
 #define NOTE_C1  33
@@ -101,16 +103,10 @@ GENSHIN IMPECT 雲瑾 BGM
 #define NOTE_B8  7902
 #define REST 0
 
-
 int tempo = 61;
-
-
 int buzzer = A4;
 
-
-int melody[] = {
-
-  
+const int melody[] PROGMEM = {
  NOTE_G5,32,NOTE_A4,32,NOTE_D5,32,NOTE_FS5,32,NOTE_G5,32,NOTE_A4,32,NOTE_D5,32,NOTE_FS5,32,NOTE_G5,32,NOTE_A4,32,NOTE_D5,32,NOTE_FS5,32,NOTE_G5,32,NOTE_A4,32,NOTE_D5,32,NOTE_FS5,32,
  NOTE_G5,32,NOTE_A4,32,NOTE_D5,32,NOTE_FS5,32,NOTE_G5,32,NOTE_A4,32,NOTE_D5,32,NOTE_FS5,32,NOTE_G5,32,NOTE_A4,32,NOTE_D5,32,NOTE_FS5,32,NOTE_G5,32,NOTE_A4,32,NOTE_D5,32,NOTE_FS5,32,
  NOTE_G4,16,REST,32,NOTE_G4,16,REST,32,NOTE_G4,16,NOTE_E5,32,NOTE_G5,32,NOTE_A5,32,NOTE_B5,32,REST,32,
@@ -139,46 +135,37 @@ int melody[] = {
  NOTE_E6,16,NOTE_E7,16,NOTE_B6,16,NOTE_A6,16,NOTE_B6,16,NOTE_A6,16,NOTE_G6,32,NOTE_DS6,32,REST,4,NOTE_FS6,16,NOTE_G6,16,NOTE_FS6,16,NOTE_D6,32,NOTE_B5,32,REST,4,
  NOTE_B4,64,NOTE_D4,64,NOTE_E5,12,NOTE_A5,12,NOTE_B5,16,NOTE_D6,12,NOTE_B5,12,NOTE_D6,16,NOTE_E6,16,
 
-
-
- 
 };
 
-
-
 int notes = sizeof(melody) / sizeof(melody[0]) / 2;
-
-
 int wholenote = (60000 * 4) / tempo;
 
-int divider = 0, noteDuration = 0;
+void playMelody(const int melody[], int notes, int wholenote) {
+  for (int thisNote = 0; thisNote < notes * 2; thisNote += 2) {
 
-void setup() {
+    int pitch = pgm_read_word(&melody[thisNote]);
+    int divider = pgm_read_word(&melody[thisNote + 1]);
 
-  for (int thisNote = 0; thisNote < notes * 2; thisNote = thisNote + 2) {
+    int noteDuration;
 
- 
-    divider = melody[thisNote + 1];
     if (divider > 0) {
-    
-      noteDuration = (wholenote) / divider;
-    } else if (divider < 0) {
-     
-      noteDuration = (wholenote) / abs(divider);
-      noteDuration *= 1.5; 
+      // 正常音符
+      noteDuration = wholenote / divider;
+    } else {
+      // 負音符（1.5倍）
+      noteDuration = wholenote / abs(divider);
+      noteDuration = noteDuration * 1.5;
     }
 
-    
-    tone(buzzer, melody[thisNote], noteDuration*0.9);
-
-    
+    tone(buzzer, pitch, noteDuration * 0.9);
     delay(noteDuration);
-    
-    
     noTone(buzzer);
   }
 }
 
+void setup() {
+  playMelody(melody, notes, wholenote);
+}
+
 void loop() {
- 
-}                         
+}
