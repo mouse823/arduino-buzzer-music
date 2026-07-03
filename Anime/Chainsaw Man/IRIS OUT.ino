@@ -1,5 +1,5 @@
 
-// 劇場版『チェンソーマンレゼ篇』 OP 「IRIS OUT」(FULL version)
+// 劇場版『チェンソーマン レゼ篇』 OP 「IRIS OUT」(FULL version)
 
 #include <avr/pgmspace.h>
 
