@@ -1,6 +1,5 @@
-/* 
-『呪術廻戦』第2期 op
-*/
+
+// 呪術廻戦 2nd Season op 青のすみか (anime version)
 
 #include <avr/pgmspace.h>
 

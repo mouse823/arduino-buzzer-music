@@ -1,6 +1,5 @@
-/* 
-蔚藍檔案-Unwelcome School   
-*/
+
+// 蔚藍檔案-Unwelcome School   
 
 #include <avr/pgmspace.h>
 

@@ -1,6 +1,6 @@
-/*
-Summer Pockets 紬の夏休み(岩井映美里)
-*/
+
+// Summer Pockets 紬の夏休み(岩井映美里)
+
 #include <avr/pgmspace.h>
 
 #define NOTE_B0  31

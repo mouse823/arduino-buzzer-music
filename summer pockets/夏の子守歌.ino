@@ -1,6 +1,5 @@
-/* 
-Summer Pockets 夏の子守歌
-*/
+
+// Summer Pockets 夏の子守歌
 
 #include <avr/pgmspace.h>
 

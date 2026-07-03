@@ -1,6 +1,5 @@
-/* 
-往け
-*/
+
+// 劇場版 ソードアート・オンライン -プログレッシブ- 星なき夜のアリア OP 往け (FULL version)
 
 #include <avr/pgmspace.h>
 

@@ -1,6 +1,6 @@
-/* 
-YOASOBI - 祝福 
-*/
+ 
+// 機動戦士ガンダム 水星の魔女 OP 祝福 (FULL version)
+
 #include <avr/pgmspace.h>
 #define NOTE_B0  31
 #define NOTE_C1  33

@@ -1,6 +1,5 @@
-/* 
-SAO Alicization War of Underworld OP2 魂の色は
-*/
+
+// ソードアート・オンライン 2nd Season OP 魂の色は
 
 #include <avr/pgmspace.h>
 

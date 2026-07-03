@@ -1,5 +1,5 @@
 
-//化物語 OP4 恋愛サーキュレーション (FULL version)
+// 化物語 OP4 恋愛サーキュレーション (FULL version)
 
 #include <avr/pgmspace.h>
 #define NOTE_A0  28

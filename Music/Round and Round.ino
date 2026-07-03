@@ -1,6 +1,5 @@
-/* 
-Squid Game 2 "Round and Round"
-*/
+
+// Squid Game 2 "Round and Round"
 
 #include <avr/pgmspace.h>
 

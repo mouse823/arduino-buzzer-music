@@ -1,6 +1,5 @@
-/* 
-Toothless Dragon Dancing Meme version "POKEMON BLACK DRIFTVEIL CITY"
-*/
+
+// Toothless Dragon Dancing Meme version "POKEMON BLACK DRIFTVEIL CITY"
 
 #include <avr/pgmspace.h>
 

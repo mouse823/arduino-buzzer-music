@@ -1,6 +1,5 @@
-/* 
-SAO battle bgm
-*/
+
+// Swordland SAO battle OST (anime version)
 
 #include <avr/pgmspace.h>
 

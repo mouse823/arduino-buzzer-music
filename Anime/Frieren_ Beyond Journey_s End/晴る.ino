@@ -1,6 +1,5 @@
-/* 
-葬送のフリーレン OP2 晴る
-*/
+
+// 葬送のフリーレン 2nd Season op 晴る (anime version)
 
 #include <avr/pgmspace.h>
 

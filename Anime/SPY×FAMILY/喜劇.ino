@@ -1,6 +1,5 @@
-/*
-SPY × FAMILY ED『喜劇』
-*/
+
+// SPY × FAMILY ED 喜劇 (anime version)
 
 #include <avr/pgmspace.h>
 

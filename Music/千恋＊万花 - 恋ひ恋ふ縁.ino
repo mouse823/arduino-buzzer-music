@@ -1,5 +1,5 @@
 
-//千恋＊万花 OP 恋ひ恋ふ縁
+// 千恋＊万花 OP 恋ひ恋ふ縁
 
 #include <avr/pgmspace.h>
 

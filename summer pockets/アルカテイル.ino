@@ -1,6 +1,5 @@
-/* 
-SUMMER POCKETS OP FULL "アルカテイル"
-*/
+
+// SUMMER POCKETS OP FULL "アルカテイル"
 
 #include <avr/pgmspace.h>
 

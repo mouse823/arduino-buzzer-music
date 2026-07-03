@@ -1,6 +1,6 @@
-/* 
-TOTORO
-*/
+
+// となりのトトロ - 井上あずみ（FULL version）
+
 
 #include <avr/pgmspace.h>
 

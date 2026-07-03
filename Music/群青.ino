@@ -1,6 +1,5 @@
-/*
-YOASOBI「群青」
-*/
+
+// YOASOBI「群青」
 
 #include <avr/pgmspace.h>
 

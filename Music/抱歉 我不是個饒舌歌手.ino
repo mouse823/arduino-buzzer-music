@@ -1,6 +1,5 @@
-/* 
-Marz23 -【我不是饒舌歌手 Not A Rapper】
-*/
+
+// Marz23 -【我不是饒舌歌手 Not A Rapper】
 
 #include <avr/pgmspace.h>
 

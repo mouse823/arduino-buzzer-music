@@ -1,6 +1,5 @@
-/* 
-Summer Pockets REFLECTION BLUE FULL OP アスタロア
-*/
+
+// Summer Pockets REFLECTION BLUE FULL OP アスタロア
 
 #include <avr/pgmspace.h>
 

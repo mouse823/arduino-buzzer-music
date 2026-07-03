@@ -1,6 +1,6 @@
-/* 
-推しの子 OP
-*/
+ 
+// 推しの子 OP アイドル (anime version)
+
 
 #include <avr/pgmspace.h>
 

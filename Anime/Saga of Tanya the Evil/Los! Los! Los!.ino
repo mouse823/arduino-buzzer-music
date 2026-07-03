@@ -1,6 +1,5 @@
-/*
-Youjo Senki ED  Los! Los! Los!
-*/
+
+// 幼女戦記 ED  Los! Los! Los! (anime version)
 
 #include <avr/pgmspace.h>
 

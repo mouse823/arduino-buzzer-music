@@ -1,6 +1,5 @@
-/*
-Pokémon Journeys OP
-*/
+
+// ポケットモンスター OP (anime version)
 
 #include <avr/pgmspace.h>
 

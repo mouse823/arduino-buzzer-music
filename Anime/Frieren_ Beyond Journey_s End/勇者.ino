@@ -1,6 +1,5 @@
-/* 
-葬送のフリーレン OP 勇者
-*/
+
+// 葬送のフリーレン OP 勇者 (anime version)
 
 #include <avr/pgmspace.h>
 

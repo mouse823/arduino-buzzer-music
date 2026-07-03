@@ -1,6 +1,5 @@
-/* 
-SUMMER POCKETS TITLE BGM "summer pockets"
-*/
+
+// SUMMER POCKETS TITLE BGM "summer pockets"
 
 #include <avr/pgmspace.h>
 

@@ -1,6 +1,5 @@
-/*
-逆夢-咒術迴戰0
-*/
+
+// 呪術廻戦0 ED 逆夢 (FULL version)
 
 #include <avr/pgmspace.h>
 

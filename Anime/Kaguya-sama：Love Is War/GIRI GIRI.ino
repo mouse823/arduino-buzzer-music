@@ -1,6 +1,5 @@
-/*
-かぐや様は告らせたい〜天才たちの恋愛頭脳戦〜 3 OP 「GIRI GIRI」
-*/
+
+// かぐや様は告らせたい〜天才たちの恋愛頭脳戦〜 3nd Season OP 「GIRI GIRI」 (anime version)
 
 #include <avr/pgmspace.h>
 

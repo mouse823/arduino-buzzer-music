@@ -1,7 +1,8 @@
-/* 
-Summer Pockets Sing! album-Golden Hours(岩井映美里)
-*/
+ 
+// Summer Pockets Sing! album-Golden Hours(岩井映美里)
+
 #include <avr/pgmspace.h>
+
 #define NOTE_B0  31
 #define NOTE_C1  33
 #define NOTE_CS1 35

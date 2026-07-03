@@ -1,6 +1,5 @@
-/* 
-廻廻奇譚-咒術迴戰
-*/
+
+// 呪術廻戦 OP 廻廻奇譚 (FULL version)
 
 #include <avr/pgmspace.h>
 

@@ -1,6 +1,5 @@
-/* 
-ようこそ実力至上主義の教室へ 2nd Season OP
-*/
+
+// ようこそ実力至上主義の教室へ 2nd Season OP (anime version)
 
 #include <avr/pgmspace.h>
 

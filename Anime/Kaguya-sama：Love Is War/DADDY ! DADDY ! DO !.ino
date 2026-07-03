@@ -1,6 +1,5 @@
-/* 
-かぐや様は告らせたい〜天才たちの恋愛頭脳戦〜 2 OP 「DADDY ! DADDY ! DO ! 」
-*/
+
+// かぐや様は告らせたい〜天才たちの恋愛頭脳戦〜 2nd Season OP 「DADDY ! DADDY ! DO !」 (anime version)
 
 #include <avr/pgmspace.h>
 

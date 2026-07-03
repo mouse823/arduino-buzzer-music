@@ -1,6 +1,5 @@
-/*
-Pokémon xy&z op
-*/
+
+// ポケットモンスター xy&z OP (anime version)
 
 #include <avr/pgmspace.h>
 

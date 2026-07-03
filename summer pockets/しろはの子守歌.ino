@@ -1,6 +1,5 @@
-/* 
-Summer Pockets しろはの子守歌(小原好美)
-*/
+
+// Summer Pockets しろはの子守歌(小原好美)
 
 #include <avr/pgmspace.h>
 

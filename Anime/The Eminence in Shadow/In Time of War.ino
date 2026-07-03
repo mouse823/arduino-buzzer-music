@@ -1,6 +1,5 @@
-/* 
-The Eminence in Shadow OST  "In Time of War"  
-*/
+
+// 陰の実力者になりたくて！ OST 「In Time of War」 (FULL version)
 
 #include <avr/pgmspace.h>
 

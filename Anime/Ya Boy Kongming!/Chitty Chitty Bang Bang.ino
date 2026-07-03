@@ -1,6 +1,5 @@
-/* 
-パリピ孔明 OP 「Chitty Chitty Bang Bang 」
-*/
+
+// パリピ孔明 OP 「Chitty Chitty Bang Bang」 (anime version)
 
 #include <avr/pgmspace.h>
 

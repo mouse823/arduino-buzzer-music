@@ -1,6 +1,5 @@
-/*
-Funkytown 1min
-*/
+
+// Funkytown 1min
 
 #include <avr/pgmspace.h>
 

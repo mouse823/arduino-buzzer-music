@@ -1,6 +1,5 @@
-/*
-ジョジョの奇妙な冒険Parte5黄金の風 Short Version
-*/
+
+// ジョジョの奇妙な冒険 Parte5 黄金の風 OST (Short Version)
 
 #include <avr/pgmspace.h>
 

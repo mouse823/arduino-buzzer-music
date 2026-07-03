@@ -1,6 +1,5 @@
-/* 
-The Kid LAROI, Justin Bieber - SATY 
-*/
+
+// The Kid LAROI, Justin Bieber - SATY 
 
 #include <avr/pgmspace.h>
 

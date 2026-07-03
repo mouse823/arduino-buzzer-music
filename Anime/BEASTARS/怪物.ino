@@ -1,6 +1,5 @@
-/*
-YOASOBI 怪物 
-*/
+
+// BEASTARS 2nd Season OP 怪物 (FULL version)
 
 #include <avr/pgmspace.h>
 

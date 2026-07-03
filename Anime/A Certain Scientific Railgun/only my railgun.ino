@@ -1,6 +1,5 @@
-/* 
-とある科学の超電磁砲レールガン op 
-*/
+
+// とある科学の超電磁砲レールガン op (anime version)
 
 #include <avr/pgmspace.h>
 

@@ -1,6 +1,5 @@
-/* 
-SAO op 「crossing field」
-*/
+
+// ソードアート・オンライン op 「crossing field」 (anime version)
 
 #include <avr/pgmspace.h>
 
