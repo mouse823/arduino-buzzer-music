@@ -1,6 +1,5 @@
-/* 
-GENSHIN IMPECT 赤膽昭忠
-*/
+
+// GENSHIN IMPECT 赤膽昭忠
 
 #include <avr/pgmspace.h>
 

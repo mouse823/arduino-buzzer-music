@@ -1,6 +1,5 @@
-/* 
-GENSHIN IMPECT 靜謐的廳堂
-*/
+
+// GENSHIN IMPECT 靜謐的廳堂
 
 #include <avr/pgmspace.h>
 

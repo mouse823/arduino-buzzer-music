@@ -1,6 +1,5 @@
-/* 
-GENSHIN IMPECT La Signora battle BGM 2
-*/
+
+// GENSHIN IMPECT La Signora battle BGM 2
 
 #include <avr/pgmspace.h>
 

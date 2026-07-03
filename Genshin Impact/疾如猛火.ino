@@ -1,6 +1,5 @@
-/* 
-Genshin Impact Liyue-Battle BGM (Rapid as Wildfires)
-*/
+
+// Genshin Impact Liyue-Battle BGM (Rapid as Wildfires)
 
 #include <avr/pgmspace.h>
 

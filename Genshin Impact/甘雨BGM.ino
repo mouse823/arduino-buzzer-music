@@ -1,6 +1,5 @@
-/* 
-GENSHIN IMPECT 麟躍幽岩
-*/
+
+// GENSHIN IMPECT 麟躍幽岩
 
 #include <avr/pgmspace.h>
 

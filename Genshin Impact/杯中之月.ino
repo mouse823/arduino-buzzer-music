@@ -1,6 +1,5 @@
-/* 
-Genshin Impact Liyue BGM (Moon in One's Cup) 
-*/
+
+// Genshin Impact Liyue BGM (Moon in One's Cup) 
 
 #include <avr/pgmspace.h>
 

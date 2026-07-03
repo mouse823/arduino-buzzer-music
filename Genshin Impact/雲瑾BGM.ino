@@ -1,6 +1,5 @@
-/*
-Genshin Impact 快意新詞
-*/
+
+// Genshin Impact 快意新詞
 
 #include <avr/pgmspace.h>
 

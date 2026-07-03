@@ -1,6 +1,5 @@
-/* 
-GENSHIN IMPECT 送往迎來
-*/
+
+// GENSHIN IMPECT 送往迎來
 
 #include <avr/pgmspace.h>
 

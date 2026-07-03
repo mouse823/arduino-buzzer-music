@@ -1,6 +1,5 @@
-/*
-Genshin Impact Das Folkwanglied
-*/
+
+// Genshin Impact Das Folkwanglied
 
 #include <avr/pgmspace.h>
 

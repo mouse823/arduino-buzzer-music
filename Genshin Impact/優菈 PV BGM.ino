@@ -1,6 +1,5 @@
-/* 
-GENSHIN IMPECT Eula PV BGM 浪沫起舞
-*/
+
+// GENSHIN IMPECT Eula PV BGM 浪沫起舞
 
 #include <avr/pgmspace.h>
 

@@ -1,6 +1,5 @@
-/* 
-GENSHIN IMPECT  一斗 傳說任務 BGM  
-*/
+
+// GENSHIN IMPECT  一斗 傳說任務 BGM  
 
 #include <avr/pgmspace.h>
 

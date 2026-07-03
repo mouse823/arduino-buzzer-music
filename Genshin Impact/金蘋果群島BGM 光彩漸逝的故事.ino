@@ -1,6 +1,5 @@
-/*
-GENSHIN IMPECT 『光彩漸逝的故事』
-*/
+
+// GENSHIN IMPECT 『光彩漸逝的故事』
 
 #include <avr/pgmspace.h>
 

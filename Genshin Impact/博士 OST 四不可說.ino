@@ -1,6 +1,5 @@
-/*
- GENSHIN IMPECT Il Dottore OST - 四不可说
- */
+
+// GENSHIN IMPECT Il Dottore OST - 四不可说
 
 #include <avr/pgmspace.h>
 

@@ -1,6 +1,5 @@
-/* 
-Genshin Impact 白鷺歸庭
-*/
+
+// Genshin Impact 白鷺歸庭
 
 #include <avr/pgmspace.h>
 

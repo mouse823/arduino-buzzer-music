@@ -1,6 +1,5 @@
-/* 
-GENSHIN IMPECT 硝華流焰
-*/
+
+// GENSHIN IMPECT 硝華流焰
 
 #include <avr/pgmspace.h>
 

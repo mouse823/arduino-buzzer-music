@@ -1,6 +1,5 @@
-/*
-Genshin Impact Port Ormos BGM
-*/
+
+// Genshin Impact Port Ormos BGM
 
 #include <avr/pgmspace.h>
 

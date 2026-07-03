@@ -1,6 +1,5 @@
-/* 
-GENSHIN IMPECT 待訴說的傳說
-*/
+
+// GENSHIN IMPECT 待訴說的傳說
 
 #include <avr/pgmspace.h>
 

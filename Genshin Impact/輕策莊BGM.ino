@@ -1,6 +1,5 @@
-/* 
-GENSHIN IMPECT 不再年輕的村莊
-*/
+
+// GENSHIN IMPECT 不再年輕的村莊
 
 #include <avr/pgmspace.h>
 

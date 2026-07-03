@@ -1,6 +1,5 @@
-/* 
-GENSHIN IMPECT 溢彩華庭
-*/
+
+// GENSHIN IMPECT 溢彩華庭
 
 #include <avr/pgmspace.h>
 

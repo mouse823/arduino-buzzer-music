@@ -1,6 +1,5 @@
-/* 
-GENSHIN IMPECT 皎潔的笑顏
-*/
+
+// GENSHIN IMPECT 皎潔的笑顏
 
 #include <avr/pgmspace.h>
 

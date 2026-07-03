@@ -1,6 +1,5 @@
-/* 
-GENSHIN IMPECT 埃阿斯的回信
-*/
+
+// GENSHIN IMPECT 埃阿斯的回信
 
 #include <avr/pgmspace.h>
 

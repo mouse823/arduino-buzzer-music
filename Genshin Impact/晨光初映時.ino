@@ -1,6 +1,5 @@
-/* 
-GENSHIN IMPECT "Quand la lumiere resplendira"
-*/
+
+// GENSHIN IMPECT "Quand la lumiere resplendira"
 
 #include <avr/pgmspace.h>
 

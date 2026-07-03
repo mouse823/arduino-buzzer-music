@@ -1,6 +1,5 @@
-/*
-Genshin Impact 暮景遐思
-*/
+
+// Genshin Impact 暮景遐思
 
 #include <avr/pgmspace.h>
 

@@ -1,6 +1,5 @@
-/* 
-GENSHIN IMPECT AZHDAHA battle BGM2 
-*/
+
+// GENSHIN IMPECT AZHDAHA battle BGM2 
 
 #include <avr/pgmspace.h>
 
