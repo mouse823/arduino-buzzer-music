@@ -1,5 +1,5 @@
 
-// ソードアート・オンライン 2nd Season OP 魂の色は
+// ソードアート・オンライン 2nd Season OP 魂の色は (anime version)
 
 #include <avr/pgmspace.h>
 
