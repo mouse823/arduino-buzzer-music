@@ -1,5 +1,5 @@
 
-// GENSHIN IMPECT AZHDAHA battle BGM2 
+// GENSHIN IMPACT 若陀龍王戰鬥 BGM（二階段） "岩壑之崩" / Azhdaha Boss Battle Theme Phase 2 "Rage Beneath the Mountains"
 
 #include <avr/pgmspace.h>
 

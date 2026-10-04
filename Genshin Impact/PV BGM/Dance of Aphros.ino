@@ -1,5 +1,5 @@
 
-// GENSHIN IMPECT Eula PV BGM 浪沫起舞
+// GENSHIN IMPACT 優菈 角色演示 OST "浪沫起舞" / Eula's Character Demo OST "Dance of Aphros"
 
 #include <avr/pgmspace.h>
 

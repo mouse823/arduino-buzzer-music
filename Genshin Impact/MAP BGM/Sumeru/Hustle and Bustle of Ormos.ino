@@ -1,5 +1,5 @@
 
-// Genshin Impact Port Ormos BGM
+// GENSHIN IMPACT 奧摩斯港常駐 BGM "喧繁之港" / Port Ormos Ambient OST "Hustle and Bustle of Ormos"
 
 #include <avr/pgmspace.h>
 

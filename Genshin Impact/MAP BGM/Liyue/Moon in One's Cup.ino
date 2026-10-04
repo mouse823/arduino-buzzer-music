@@ -1,5 +1,5 @@
 
-// Genshin Impact Liyue BGM (Moon in One's Cup) 
+// GENSHIN IMPACT 璃月港常駐 BGM "杯中明月" / Liyue Harbor Ambient OST "Moon in One's Cup" 
 
 #include <avr/pgmspace.h>
 

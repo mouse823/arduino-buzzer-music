@@ -1,5 +1,5 @@
 
-// GENSHIN IMPECT 赤膽昭忠
+// GENSHIN IMPACT 托馬 角色演示 OST "赤膽昭忠" / Thoma's Character Demo OST "Devotion of the Keeper"
 
 #include <avr/pgmspace.h>
 

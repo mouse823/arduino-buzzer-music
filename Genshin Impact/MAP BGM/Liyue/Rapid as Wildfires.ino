@@ -1,5 +1,5 @@
 
-// Genshin Impact Liyue-Battle BGM (Rapid as Wildfires)
+// GENSHIN IMPACT 璃月戰鬥 BGM "疾如猛火" / Liyue Battle OST "Rapid as Wildfires"
 
 #include <avr/pgmspace.h>
 

@@ -1,5 +1,5 @@
 
-// Genshin Impact 快意新詞
+// GENSHIN IMPACT 雲堇 角色演示 OST "快意新詞" / Yun Jin's Character Demo OST "Chapter of a New Era"
 
 #include <avr/pgmspace.h>
 

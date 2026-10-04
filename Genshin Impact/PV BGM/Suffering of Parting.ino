@@ -1,5 +1,5 @@
 
-// GENSHIN IMPECT  一斗 傳說任務 BGM  
+// GENSHIN IMPACT  荒瀧一斗 傳說任務 BGM "愛別離苦" / Itto's Story Quest BGM "Suffering of Parting"
 
 #include <avr/pgmspace.h>
 

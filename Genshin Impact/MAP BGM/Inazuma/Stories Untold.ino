@@ -1,5 +1,5 @@
 
-// GENSHIN IMPECT 待訴說的傳說
+// GENSHIN IMPACT 海祇島常駐 BGM "待訴說的傳說" / Watatsumi Island Ambient OST "Stories Untold"
 
 #include <avr/pgmspace.h>
 

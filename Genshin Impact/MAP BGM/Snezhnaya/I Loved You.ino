@@ -1,5 +1,5 @@
 
-// Genshin Impact Snezhnaya OST《I Loved You》
+// GENSHIN IMPACT 至冬國主線劇情 OST "I Loved You" / Snezhnaya Archon Quest OST "I Loved You"
 
 #include <avr/pgmspace.h>
 

@@ -1,5 +1,5 @@
 
-// GENSHIN IMPECT 溢彩華庭
+// GENSHIN IMPACT 海祇島常駐 BGM "溢彩華庭" / Watatsumi Island Ambient OST "Illuminated Coral Palace"
 
 #include <avr/pgmspace.h>
 

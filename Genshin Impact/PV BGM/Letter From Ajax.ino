@@ -1,5 +1,5 @@
 
-// GENSHIN IMPECT 埃阿斯的回信
+// GENSHIN IMPACT 公子 角色演示 OST "埃阿斯的回信" / Tartaglia's Character Demo OST "Letter From Ajax"
 
 #include <avr/pgmspace.h>
 
