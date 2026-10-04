@@ -1,5 +1,5 @@
 
-// 蔚藍檔案-Unwelcome School   
+// 蔚藍檔案/ Blue Archive "Unwelcome School"  
 
 #include <avr/pgmspace.h>
 
