@@ -102,7 +102,7 @@
 #define NOTE_B8  7902
 #define REST 0
 
-int tempo = 77;
+float tempo = 38.5;
 int buzzer = A4;
 
 const float melody[] PROGMEM = {
@@ -133,9 +133,12 @@ const float melody[] PROGMEM = {
 };
 
 int notes = sizeof(melody) / sizeof(melody[0]) / 2;
-int wholenote = (120000 * 4) / tempo;
+float wholenote = (60000 * 4) / tempo;
 
-void playMelody(const float melody[], int notes, int wholenote) {
+const float timingCompensation = 255.4311; // 補us
+float compensationRemainder = 0.0;
+
+void playMelody(const float melody[], int notes, float wholenote) {
   for (int thisNote = 0; thisNote < notes * 2; thisNote += 2) {
 
     int pitch = (int)pgm_read_float(&melody[thisNote]);
@@ -153,11 +156,18 @@ void playMelody(const float melody[], int notes, int wholenote) {
     }
 
     tone(buzzer, pitch, (unsigned long)(noteDuration * 0.9));
+
     delay((unsigned long)noteDuration);
     noTone(buzzer);
+
+    float exactDelay = timingCompensation + compensationRemainder;
+
+    unsigned int delayUs = (unsigned int)exactDelay;
+    compensationRemainder = exactDelay - delayUs;
+
+    delayMicroseconds(delayUs);
   }
 }
-
 void setup() {
   playMelody(melody, notes, wholenote);
 }
