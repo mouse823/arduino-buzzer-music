@@ -153,7 +153,7 @@ void playMelody(const float melody[], int notes, float wholenote) {
       // 正常音符
       noteDuration = wholenote / divider;
     } else {
-      // 負音符（1.5倍
+      // 負音符（1.5倍）
       noteDuration = wholenote / fabs(divider);
       noteDuration *= 1.5;
     }

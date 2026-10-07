@@ -144,7 +144,7 @@ NOTE_AS5,9,NOTE_AS3,9,NOTE_GS5,9,NOTE_FS5,8,NOTE_GS5,8,NOTE_DS3,8,NOTE_GS3,8,NOT
 int notes = sizeof(melody) / sizeof(melody[0]) / 2;
 float wholenote = (60000.0 * 4.0) / tempo;
 
-const float timingCompensation = 200; // 補 200us
+const float timingCompensation = 235.7714; // 補us
 float compensationRemainder = 0.0;
 
 void playMelody(const float melody[], int notes, float wholenote) {
@@ -167,7 +167,6 @@ void playMelody(const float melody[], int notes, float wholenote) {
     delay((unsigned long)noteDuration);
     noTone(buzzer);
 
-    // 每顆音固定補 216.7059 us
     float exactDelay = timingCompensation + compensationRemainder;
 
     unsigned int delayUs = (unsigned int)exactDelay;
