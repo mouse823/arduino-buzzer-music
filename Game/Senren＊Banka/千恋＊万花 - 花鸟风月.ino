@@ -141,11 +141,13 @@ NOTE_AS6,32,NOTE_B6,8,NOTE_AS6,8,NOTE_FS6,8,NOTE_DS6,32,NOTE_FS6,32,NOTE_DS6,16,
 NOTE_AS5,9,NOTE_AS3,9,NOTE_GS5,9,NOTE_FS5,8,NOTE_GS5,8,NOTE_DS3,8,NOTE_GS3,8,NOTE_DS4,8,NOTE_GS4,4,
 
 };
-
 int notes = sizeof(melody) / sizeof(melody[0]) / 2;
-int wholenote = (60000 * 4) / tempo;
+float wholenote = (60000.0 * 4.0) / tempo;
 
-void playMelody(const float melody[], int notes, int wholenote) {
+const float timingCompensation = 200; // 補 200us
+float compensationRemainder = 0.0;
+
+void playMelody(const float melody[], int notes, float wholenote) {
   for (int thisNote = 0; thisNote < notes * 2; thisNote += 2) {
 
     int pitch = (int)pgm_read_float(&melody[thisNote]);
@@ -154,25 +156,30 @@ void playMelody(const float melody[], int notes, int wholenote) {
     float noteDuration;
 
     if (divider > 0) {
-      // 正常音符
       noteDuration = wholenote / divider;
     } else {
-      // 負音符（1.5倍）
       noteDuration = wholenote / fabs(divider);
       noteDuration *= 1.5;
     }
 
     tone(buzzer, pitch, (unsigned long)(noteDuration * 0.9));
+
     delay((unsigned long)noteDuration);
     noTone(buzzer);
+
+    // 每顆音固定補 216.7059 us
+    float exactDelay = timingCompensation + compensationRemainder;
+
+    unsigned int delayUs = (unsigned int)exactDelay;
+    compensationRemainder = exactDelay - delayUs;
+
+    delayMicroseconds(delayUs);
   }
 }
-
 
 void setup() {
   playMelody(melody, notes, wholenote);
 }
-
 void loop() {
   // 這首應該是我玩千戀萬花聽最多次的OST了 -2026/09/20
   //參考以下影片製作

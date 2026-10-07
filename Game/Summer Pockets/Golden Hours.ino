@@ -102,10 +102,10 @@
 #define NOTE_B8  7902
 #define REST 0
 
-int tempo = 55;
+float tempo = 55;
 int buzzer = A4;
 
-const int melody[] PROGMEM = 
+const float melody[] PROGMEM = 
 {
   // ♫~
   NOTE_F4,16,NOTE_F5,48,NOTE_F5,48,NOTE_F5,48,NOTE_F5,16,NOTE_AS4,16,NOTE_CS5,16,NOTE_C5,16,NOTE_CS5,16,NOTE_GS5,16,NOTE_CS5,32,NOTE_GS4,32,NOTE_GS5,32,NOTE_DS5,16,NOTE_DS5,32,REST,16,
@@ -342,31 +342,44 @@ const int melody[] PROGMEM =
   NOTE_CS5,16,NOTE_FS5,32,REST,640,NOTE_F5,32,REST,640,NOTE_DS5,32,REST,640,NOTE_CS5,32,REST,640,NOTE_C5,32,REST,640,NOTE_CS5,32,REST,640,NOTE_GS5,32,REST,640,REST,32,REST,640,NOTE_GS4,32,REST,640,REST,32,REST,640,
   NOTE_GS5,24,NOTE_CS6,24,NOTE_FS6,24,NOTE_F6,24,NOTE_DS6,24,NOTE_CS6,24,NOTE_GS5,10,NOTE_CS6,10,NOTE_C6,10,NOTE_CS6,1,
 };
-int notes = sizeof(melody) / sizeof(melody[0]) / 2;
-int wholenote = (60000 * 4) / tempo;
 
-void playMelody(const int melody[], int notes, int wholenote) {
+int notes = sizeof(melody) / sizeof(melody[0]) / 2;
+float wholenote = (60000 * 4) / tempo;
+
+const float timingCompensation = 247.8093; // 補us
+float compensationRemainder = 0.0;
+
+void playMelody(const float melody[], int notes, float wholenote) {
   for (int thisNote = 0; thisNote < notes * 2; thisNote += 2) {
 
-    int pitch = pgm_read_word(&melody[thisNote]);
-    int divider = pgm_read_word(&melody[thisNote + 1]);
+    int pitch = (int)pgm_read_float(&melody[thisNote]);
+    float divider = pgm_read_float(&melody[thisNote + 1]);
 
-    int noteDuration;
+    float noteDuration;
 
     if (divider > 0) {
       // 正常音符
       noteDuration = wholenote / divider;
     } else {
-      // 負音符（1.5倍）
-      noteDuration = wholenote / abs(divider);
-      noteDuration = noteDuration * 2 / 3;
+      // 負音符（1.5倍
+      noteDuration = wholenote / fabs(divider);
+      noteDuration *= 1.5;
     }
 
-    tone(buzzer, pitch, noteDuration * 9 / 10);
-    delay(noteDuration);
+    tone(buzzer, pitch, (unsigned long)(noteDuration * 0.9));
+
+    delay((unsigned long)noteDuration);
     noTone(buzzer);
+
+    float exactDelay = timingCompensation + compensationRemainder;
+
+    unsigned int delayUs = (unsigned int)exactDelay;
+    compensationRemainder = exactDelay - delayUs;
+
+    delayMicroseconds(delayUs);
   }
 }
+
 
 void setup() {
   playMelody(melody, notes, wholenote);

@@ -1,4 +1,4 @@
-
+ 
 // Summer Pockets - White Loneliness
 
 #include <avr/pgmspace.h>
@@ -102,7 +102,7 @@
 #define NOTE_B8  7902
 #define REST 0
 
-int tempo = 68;
+float tempo = 68;
 int buzzer = A4;
 
 const int melody[] PROGMEM = {
@@ -131,37 +131,50 @@ NOTE_F4,64,NOTE_D5,64,NOTE_AS5,9,NOTE_A5,9,NOTE_F5,9,NOTE_AS4,8,NOTE_C5,8,NOTE_F
 };
 
 int notes = sizeof(melody) / sizeof(melody[0]) / 2;
-int wholenote = (60000 * 4) / tempo;
+float wholenote = (60000 * 4) / tempo;
 
-void playMelody(const int melody[], int notes, int wholenote) {
+const float timingCompensation = 226.2284; // 補us
+float compensationRemainder = 0.0;
+
+void playMelody(const float melody[], int notes, float wholenote) {
   for (int thisNote = 0; thisNote < notes * 2; thisNote += 2) {
 
-    int pitch = pgm_read_word(&melody[thisNote]);
-    int divider = pgm_read_word(&melody[thisNote + 1]);
+    int pitch = (int)pgm_read_float(&melody[thisNote]);
+    float divider = pgm_read_float(&melody[thisNote + 1]);
 
-    int noteDuration;
+    float noteDuration;
 
     if (divider > 0) {
       // 正常音符
       noteDuration = wholenote / divider;
     } else {
-      // 負音符（1.5倍）
-      noteDuration = wholenote / abs(divider);
-      noteDuration = noteDuration * 1.5;
+      // 負音符（1.5倍
+      noteDuration = wholenote / fabs(divider);
+      noteDuration *= 1.5;
     }
 
-    tone(buzzer, pitch, noteDuration * 0.9);
-    delay(noteDuration);
+    tone(buzzer, pitch, (unsigned long)(noteDuration * 0.9));
+
+    delay((unsigned long)noteDuration);
     noTone(buzzer);
+
+    float exactDelay = timingCompensation + compensationRemainder;
+
+    unsigned int delayUs = (unsigned int)exactDelay;
+    compensationRemainder = exactDelay - delayUs;
+
+    delayMicroseconds(delayUs);
   }
 }
+
 
 void setup() {
   playMelody(melody, notes, wholenote);
 }
 
-void loop() {
-  //我是做官方youtube版，跟遊戲裡的不同
+void loop()
+{
+  // どすこい!
   //參考以下影片製作
   //https://www.bilibili.com/video/BV1eM4m1y7gf
 }
