@@ -129,9 +129,12 @@ NOTE_AS4,8,NOTE_DS5,8,NOTE_G5,-8,NOTE_G5,32,REST,32,NOTE_AS2,8,NOTE_GS5,8,NOTE_D
 };
 
 int notes = sizeof(melody) / sizeof(melody[0]) / 2;
-int wholenote = (60000 * 4) / tempo;
+float wholenote = (60000 * 4) / tempo;
 
-void playMelody(const float melody[], int notes, int wholenote) {
+const float timingCompensation = 231.4909; // 補us
+float compensationRemainder = 0.0;
+
+void playMelody(const float melody[], int notes, float wholenote) {
   for (int thisNote = 0; thisNote < notes * 2; thisNote += 2) {
 
     int pitch = (int)pgm_read_float(&melody[thisNote]);
@@ -149,10 +152,19 @@ void playMelody(const float melody[], int notes, int wholenote) {
     }
 
     tone(buzzer, pitch, (unsigned long)(noteDuration * 0.9));
+
     delay((unsigned long)noteDuration);
     noTone(buzzer);
+
+    float exactDelay = timingCompensation + compensationRemainder;
+
+    unsigned int delayUs = (unsigned int)exactDelay;
+    compensationRemainder = exactDelay - delayUs;
+
+    delayMicroseconds(delayUs);
   }
 }
+
 
 
 void setup() {
